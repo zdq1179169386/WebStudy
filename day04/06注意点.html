@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>注意点</title>
+	<style type="text/css">
+		#father > p {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 行内元素 只能包裹行内元素，和 行内块元素，a 标签除外 -->
+	<!-- 块级元素 可以包裹任何元素，但是 文本类 p，和 h1 除外 -->
+	<!-- a 标签里不能放 a 标签 -->
+	<!-- 顶线，中线，基线，底线 -->
+	<!-- 英文文字 行高是 基线和基线之间的距离 -->
+	<!-- 中文文字 行高是 底线和底线之间的距离 -->
+	<!-- 行高 等于 标签高度 文字居中的原因是 ，设置了 上边距和下边距 相等且为 0  -->
+	<div id="father">
+		<p>123</p>
+		<p>123</p>
+		<p>123</p>
+		<div>
+			<p>abc</p>
+		</div>
+
+	</div>
+</body>
+</html>

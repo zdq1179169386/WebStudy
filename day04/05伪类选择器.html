@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>伪类选择器</title>
+	<style type="text/css">
+		a {
+			text-decoration: none;
+			font-size: 30px;
+			font-weight: 700;
+		}
+		a:link {
+			/*未访问的链接*/
+			/*href 必须要实际地址，# 站位也行*/
+			color: gray;
+			
+		}
+		a:hover {
+			/*鼠标一上去的时候*/
+			color: red;
+		}
+		a:active {
+			/*鼠标按下去的状态*/
+			color: green;
+		}
+		a:visited {
+			/*鼠标点击过后的状态*/
+			color: yellow;
+		}
+ 	</style>
+</head>
+<body>
+	<a href="#" target="_blank">双十一秒杀</a>
+	<textarea>请输入留言</textarea>
+	<td>2222</td>
+</body>
+</html>

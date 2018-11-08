@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	   div {
+			width: 200px;
+			height: 200px;
+			background-color: purple;
+		}
+
+		.father {
+			margin: 100px;
+			position: absolute;
+
+		}
+		.son {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			left: 50px;
+			top: 50px;
+		}
+		/*父盒子没有绝对定位，子盒子相对浏览器定位， 父盒子有绝对定位， 子盒子相对 父盒子 定位*/
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

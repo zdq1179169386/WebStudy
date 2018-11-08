@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<table align="center" cellspacing="20">
+		<caption><h4>青春不常在，抓紧谈恋爱</h4></caption>
+		<tr>
+			<td>所在区域</td>
+			<!-- 文本 value ： 默认值-->
+			<td><input type="text" value="北京"/></td>
+		</tr>
+		<tr>
+			<td>用户名</td>
+			<td><input type="text" value="andy"/></td>
+		</tr>
+		<tr>
+			<!-- select ： 下拉标签，  option 可选的 ， selected ： 默认选中的-->
+			<td>年龄</td>
+			<td>
+				<select >
+					<option>年龄</option>
+					<option>1992年</option>
+					<option>1993年</option>
+					<option>1994年</option>
+					<option>1995年</option>
+				</select>
+				<select >
+					<option>月份</option>
+					<option>1月</option>
+					<option>2月</option>
+					<option>3月</option>
+					<option>4月</option>
+				</select>
+
+			</td>
+		</tr>
+		<tr>
+			<td>省份</td>
+			<td>
+				<select>
+					<option>籍贯</option>
+					<option selected="selected">安徽</option>
+					<option>浙江</option>
+					<option>江苏</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<!-- label ： 点击跳转到光标输入 -->
+			<td>
+				<label for="password">密码</label>
+			</td>
+			<!-- 密码，maxlength : 输入最大值 -->
+			<td><input type="password" value="123456" maxlength="6" id="password" /></td>
+		</tr>
+		<tr>
+			<td>性别</td>
+			<td>
+				<!-- radio ： 单选框，checked ： 默认选中的，name ： 相同的为一组集合 -->
+				<input type="radio" name="sex" checked="checked" />男
+				<input type="radio" name="sex" />女
+			</td>
+		</tr>
+		<tr>
+			<td>喜欢的类型</td>
+			<td>
+				<!-- checkbox：复选框， -->
+				<input type="checkbox" name="liketype"/>性感
+				<input type="checkbox" name="liketype"/>漂亮
+				<input type="checkbox" name="liketype" checked="checked" />胸大
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<!-- button ： 点击按钮 -->
+				<input type="button" name="" value="注册" />
+				<!-- submit ： 提交按钮 -->
+				<input type="submit" name="" value="提交" />
+				<!-- reset ：重置按钮 -->
+				<input type="reset" name="" value="重置" />
+				<!-- image : 图片按钮 -->
+				<input type="image" name="" src="1.jpg" width="50" />
+			</td>
+		</tr>
+		<tr>
+			<td>选择文件</td>
+			<td>
+				<!-- 选择文件按钮 -->
+				<input type="file" name=""/>
+			</td>
+		</tr>
+		<tr>
+			<!-- textarea : 文本框标签 -->
+			<td>给我留言</td>
+			<td>
+				<textarea placeholder="111"></textarea>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

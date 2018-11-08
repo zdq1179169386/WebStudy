@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>合并单元格</title>
+</head>
+<body>
+	<table border="1" cellspacing="0" cellpadding="0" width="400" >
+		<caption>跨列合并,colspan : 自左而右，多出的要删掉</caption>
+		<tr>
+			<th>第一列</th>
+			<th>第二列</th>
+			<th>第三列</th>
+		</tr>
+		<tr>
+			<td>123</td>
+			<td>abc</td>
+			<td>efg</td>
+		</tr>
+		<tr>
+			<td>123</td>
+			<td>abc</td>
+			<td>efg</td>
+		</tr>
+		<tr>
+			<td>123</td>
+			<td colspan="2">abc</td>
+<!-- 			<td>efg</td>
+ -->		</tr>
+	</table>
+	<table border="1" cellspacing="0" cellpadding="0" width="400" >
+		<caption>跨行合并，自上而下，多出的删掉</caption>
+		<tr>
+			<th>第一列</th>
+			<th>第二列</th>
+			<th>第三列</th>
+		</tr>
+		<tr>
+			<td>123</td>
+			<td>abc</td>
+			<td rowspan="3">efg</td>
+		</tr>
+		<tr>
+			<td>123</td>
+			<td>abc</td>
+			<!-- <td>efg</td> -->
+		</tr>
+		<tr>
+			<td>123</td>
+			<td>abc</td>
+			<!-- <td>efg</td> -->
+		</tr>
+	</table>
+
+</body>
+</html>

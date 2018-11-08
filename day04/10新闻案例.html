@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+	/*去除所有盒子的内边距和外边距*/
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		.article {
+			width: 380px;
+			height: 263px;
+			border: 1px solid #ccc;
+			margin: 100px;
+			padding: 20px 15px 0;
+			background-color: #eee;
+		}
+		.article h2 {
+			color: #333;
+			border-bottom: 1px solid #ccc;
+			padding-bottom: 5px;
+		}
+		.article ul {
+			margin-top: 10px;
+		}
+		.article ul li {
+			height: 38px;
+			list-style: none;
+			line-height: 38px;
+			border-bottom: 1px dashed #ccc;
+			/*首行缩进*/
+			text-indent: 2em;
+		}
+		.article a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div class="article">
+		<h2>最新文章</h2>
+		<ul>
+			<li><a>最新文章</a></li>
+			<li><a>最新文章</a></li>
+			<li><a>最新文章</a></li>
+			<li><a>最新文章</a></li>
+			<li><a>最新文章</a></li>
+		</ul>
+	</div>
+</body>
+</html>

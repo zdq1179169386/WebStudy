@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>后代选择器</title>
+	<style type="text/css">
+		div a {/* 后台选择器，空格隔开*/
+			color: red;
+		}
+		.nav a { /* 类选择器后面也可以跟后台选择器 */
+			color: yellow;
+		}
+		
+	</style>
+</head>
+<body>
+	<div>
+		<a href="">一级菜单</a>
+	</div>
+		<a href="">二级菜单</a>
+		<a href="">二级菜单</a>
+		<a href="">二级菜单</a>
+	<ul>
+		<li>
+			<div class="nav">
+				<a href="">
+					三级菜单
+				</a>
+			</div>
+		</li>
+	</ul>
+
+	</body>
+</html>

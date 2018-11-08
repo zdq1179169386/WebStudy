@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>行内，块级，行内块</title>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			display: inline;/*块级 转 行内元素*/
+		}
+		span {
+			width: 100px;
+			height: 100px;
+			background-color: purple;
+			display: block;/*行内转块级元素 */
+		}
+		a {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			display: inline-block; /* 行内 转 行内块元素 */
+			line-height: 100px;
+			text-align: center; /*行高等于标签高度，垂直居中*/
+		}
+	</style>
+</head>
+<body>
+	<!-- 块级元素，独占一行，有宽高 -->
+	<div>块级标签</div>
+	<div>块级标签</div>
+	<div>块级标签</div>
+	<!-- 行内元素，一行多个，没有宽高 -->
+	<span>行内标签</span>
+	<span>行内标签</span>
+	<span>行内标签</span>
+	<!-- 行内块，一行多个，也有宽高 -->
+	<a href="">百度</a>
+	<a href="">百度</a>
+	<a href="">百度</a>
+</body>
+</html>

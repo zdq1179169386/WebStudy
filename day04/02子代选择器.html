@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>子代选择器</title>
+	<style type="text/css">
+	/*大于号，默认选中第一级子标签 */
+		/*ul li > a{
+			color: red;
+		}*/
+		.father > li {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<a href="">一级</a>
+			<div>
+				<a href="">二级</a>
+				<a href="">二级</a>
+			</div>
+		</li>
+	</ul>
+
+	<ul class="father">
+		<li>
+			<div>123</div>
+			
+			<div>
+				<ul>
+				<li>
+					abc
+				</li>
+			</ul>
+			</div>
+		</li>
+	</ul>
+
+</body>
+</html>
