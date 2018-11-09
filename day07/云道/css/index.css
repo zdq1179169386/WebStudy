@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fafafa;
+  height: 3000px;
+}
+
+li {
+  list-style: none;
+}
+/* top */
+.top {
+  background-color: white;
+  height: 100px;
+}
+/* 行高是可以继承的 */
+.inner {
+  width: 1200px;
+  height: 100px;
+  margin: 0 auto;
+  line-height: 100px;
+}
+
+.logo {
+  float: left;
+  /* background-color: pink; */
+}
+
+.logo img {
+  /* 图片垂直居中 */
+  vertical-align: middle;
+}
+
+.nav {
+  float: right;
+  /* overflow: hidden; */
+  /* background-color: pink; */
+}
+/* li   是块级元素 */
+.nav ul {
+    /* background-color: red; */
+    /* 给父盒子添加 overflow 也可以清除浮动*/
+    overflow: hidden;
+}
+.nav li {
+  float: left;
+  margin: 0 20px;
+}
+
+.nav li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  color: #2286f6;
+}
+/* banner */
+.banner {
+  height: 338px;
+  /* 居上 ，左右居中 */
+  background: url(../images/banner.jpg) no-repeat top center;
+}
+
+/* service */
+.service {
+  margin: 75px auto;
+  width: 1055px;
+  height: 660px;
+  /* background-color: lightgray; */
+}
+
+.service-top {
+  border-top: 1px solid #cccccc;
+  margin: 0 25px;
+  /* background-color: pink; */
+}
+
+.service-top h3 {
+  text-align: center;
+  margin: -13px auto 0;
+  width: 80px;
+  background-color: #fafafa;
+}
+
+.service-top p {
+  font-size: 14px;
+  color: #333;
+  line-height: 26px;
+  width: 830px;
+  text-align: center;
+  margin: 20px auto 50px;
+}
+
+.service-main {
+  background-color: #eee;
+}
+.service-main li {
+  width: 314px;
+  height: 510px;
+  background-color: #fff;
+  float: left;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+.service-main img {
+  width: 150px;
+  height: 150px;
+  background-color:pink;
+  margin: 25px auto;
+  display: block;
+}
+
+.service-main h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: normal;
+  height: 40px;
+}
+
+.service-main p {
+  font-size: 14px;
+  color: #666;
+  width: 235px;
+  margin: 0 auto;
+}
+
+.service-main a {
+  width: 148px;
+  height: 38px;
+  display: block;
+  border: 1px solid #ff9412;
+  text-decoration: none;
+  margin: 30px auto;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 5px;
+  color: #ff9412;
+}
+.service-main a:hover {
+  color: #fff;
+  background-color: #ff9412;
+}
+ .yingxiao {
+  margin: 0 45px;
+}

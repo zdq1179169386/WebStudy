@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .father {
+      border: 1px solid rebeccapurple;
+      /* 给父盒子添加 overflow 也可以清除浮动*/
+      /* overflow: hidden; */
+    }
+    .left {
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+      float: left;
+    }
+    .right {
+      width: 80px;
+      height: 80px;
+      background-color: pink;
+      float: left;
+    }
+    .footer {
+      width: 300px;
+      height: 100px;
+      background-color: red;
+    }
+    /* 额外标签法 */
+    .clear {
+      clear: both;
+      /* 清除了浮动，父盒子自动适配高度 */
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="left"></div>
+    <div class="right"></div>
+    <!-- <div class="clear"></div> -->
+  </div>
+  <div class="footer"></div>
+</body>
+</html>

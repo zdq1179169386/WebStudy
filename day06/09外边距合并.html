@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 300px;
+      height: 200px;
+    }
+    .one {
+      background-color: pink;
+      margin-bottom: 50px;
+    }
+    .two {
+      background-color: aquamarine;
+      margin-top: 50px;
+    }
+    /* 上面这种情况，虽然设置了 margin-bottom 和  margin-top ，最终两个盒子之间的距离以最大的为准 */
+  </style>
+</head>
+<body>
+  <div class="one">1</div>
+  <div class="two">2</div>
+  
+</body>
+</html>
