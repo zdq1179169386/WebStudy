@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+    .father {
+      width: 300px;
+      height: 300px;
+      background-color: purple;
+      margin: 150px;
+      position: relative;
+    }
+    .son {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      /* 固定定位，总数以浏览器为准 */
+      position: fixed;
+      left: 100px;
+      top: 100px;
+    }
+    /* float : left 模式转换 inline-block */
+    /* 绝对定位 和 固定定位也会隐式将盒子隐式转换成inline-block */
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+</body>
+</html>

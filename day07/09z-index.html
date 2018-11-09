@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      position: absolute;
+    }
+    /* font-weight 也没有单位 */
+    /* 只有定位的盒子才有  z-index, 值越大 ，视图层级越高 ，没有单位，*/
+    .blue {
+      z-index: 1;
+    }
+    .red {
+      background-color:red;
+      left: 50px;
+      top: 50px;
+      z-index: 2;
+    }
+    .pink {
+      background-color: pink;
+      left: 100px;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="blue"></div>
+  <div class="red"></div>
+  <div class="pink"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  
+    .one {
+      width: 100px;
+      height: 100px;
+      border: 1px solid cadetblue;
+      float: left;
+      margin-left: -1px;
+      position: relative;
+      /* border-collapse: collapse; */
+
+    }
+    /* 相对定位，绝对定位，固定定位都会脱标 */
+    /* 如果盒子合影相对定位，直接加 position: relative 就可以了，如果盒子加了 position: relative ，就用z-index*/
+    .one:hover {
+      border: 1px solid pink;
+      /* position: relative; */
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+      <div class="one"></div>
+      <div class="one"></div>
+      <div class="one"></div>
+      <div class="one"></div>
+      <div class="one"></div>
+  </div>
+</body>
+</html>
