@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background: url(images/wx.jpg) repeat-x;
+        }
+        .nav {
+            height: 75px;
+            position: relative;
+            left: 50%;
+        }
+        .nav li {
+            float: left;
+            padding-top: 21px;
+            margin: 0 10px;
+        }
+        .nav a{
+            display: inline-block;
+            height: 33px;
+            line-height: 33px;
+            background: url(images/to.png) no-repeat ;
+            padding-left: 15px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .nav span {
+            background: url(images/to.png) no-repeat right;
+            display: inline-block;
+            padding-right: 15px;
+        }
+        .nav a:hover {
+            background: url(images/ao.png) no-repeat;
+        }
+        .nav a:hover span {
+            background: url(images/ao.png) no-repeat right;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">
+                <span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span>新闻客户端</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span>公众平台</span>
+            </a>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+        }
+        .one {
+            /* 手 */
+            cursor: pointer;
+        }
+        .two {
+            /* 文本 */
+            cursor: text;
+        }
+        .three {
+            /* 移动 */
+            cursor: move;
+        }
+        input {
+            /* 删除蓝色边框 */
+            outline: none;
+        }
+        textarea {
+            outline: none;
+            /* 防止拖拽 */
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <input type="text">
+    <textarea name="" ></textarea>
+</body>
+</html>
