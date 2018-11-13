@@ -1,0 +1,135 @@
+/* 中间模块 */
+.jd {
+  position: relative;
+}
+
+.jd-inner {
+  height: 480px;
+  position: relative;
+  /* 只有 position  的才有 z-index */
+  z-index: 999;
+}
+
+.ad {
+  background: url(../images/bg.png) no-repeat top center;
+  height: 480px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.ad a {
+  display: block;
+  height: 100%;
+}
+
+.jd-clo1 {
+  width: 190px;
+  height: 465px;
+	background-color: #6E6568;
+  float: left;
+  padding-top: 15px;
+}
+
+.jd-clo1 li {
+  padding-left: 10px;
+  height: 28px;
+  line-height: 28px;
+}
+
+.jd-clo1 li:hover {
+  background-color: #999395;
+}
+
+.jd-clo1 li a {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.jd-clo1 li span {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.jd-clo2 {
+  width: 790px;
+  height: 480px;
+  /* background-color: purple; */
+  float: left;
+  margin-left: 10px;
+}
+
+.jd-clo2-hd {
+  height: 340px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.jd-clo2-bd div {
+  width: 390px;
+  height: 130px;
+  float: left;
+}
+
+.jd-clo2-bd div img {
+  width: 100%;
+}
+
+.firstPic {
+  margin-right: 10px;
+}
+
+/* 左右箭头 */
+.arr-l, .arr-r {
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  background: rgba(0, 0, 0, 0.3);
+  font-family: 'icomoon';
+  color: #ffffff;
+  text-align: center;
+  line-height: 60px;
+  font-size: 25px;
+}
+
+.arr-l {
+  left: 0;
+}
+.arr-r {
+  right: 0;
+}
+
+/* pagecontrol */
+.jd-clo2-hd ol {
+  position: absolute;
+  width: 160px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  bottom: 15px;
+  left: 50%;
+  margin-left: -80px;
+}
+.jd-clo2-hd ol li {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  float: left;
+  margin: 4px 5px;
+  cursor: pointer;
+}
+
+.jd-clo2-hd .current {
+  background-color: #f10215;
+}
+
+.jd-clo3 {
+  width: 190px;
+  height: 480px;
+  background-color: blue;
+  float: right;
+}
