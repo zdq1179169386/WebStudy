@@ -1,0 +1,280 @@
+/* 公共样式 头部和底部 */
+/* 版心  */
+.w {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?cvnuo8');
+  src:  url('../fonts/icomoon.eot?cvnuo8#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?cvnuo8') format('truetype'),
+      url('../fonts/icomoon.woff?cvnuo8') format('woff'),
+      url('../fonts/icomoon.svg?cvnuo8#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+input, button {
+  padding: 0;
+  border: 0;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+body {
+  background-color: #f6f6f6;
+}
+.style-red {
+  color: #f10215!important;
+}
+/* 京东头部 */
+.J_event {
+  background-color: #000000;
+}
+
+.J_event a{
+  display: block;
+  height: 80px;
+  background: url(../images/top.jpg) no-repeat ;
+  position: relative;
+}
+
+.J_event a i {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  font-family: 'icomoon';
+  text-align: center;
+  line-height: 20px;
+  font-style: normal;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.shortcut {
+  height: 30px;
+  background-color: #e3e4e5;
+  border-bottom: 1px solid #dddddd;
+  color: #9d9d9d;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.pos {
+  font-family: 'icomoon';
+  font-style: normal;
+  color: #f10215;
+  /* font-size: 14px; */
+}
+
+.shortcut a {
+  color: #9d9d9d;
+  font-size: 12px;
+  text-decoration: none;
+}
+.shortcut a:hover {
+  color: #f10215;
+}
+.shortcut .fl li {
+  margin-left: 200px;
+  height: 30px;
+}
+.shortcut .fr li {
+  float: left;
+}
+
+.spacer {
+  width: 1px;
+  height: 10px;
+  background-color: #ccc;
+  margin: 10px 10px 0;
+}
+
+.dropdown {
+  padding-right: 15px;
+  position: relative;
+}
+
+.dropdown i {
+  font-family: 'icomoon';
+  font-style: normal;
+  font-size: 16px;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+}
+/* 二维码 */
+.erweima {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  border: 1px solid #ccc;
+  padding: 3px;
+  left: -8px;
+  top: 35px;
+}
+
+/* header */
+.header {
+  height: 140px;
+}
+
+.header-inner {
+  height: 140px;
+  /* background-color: pink; */
+  position: relative;
+}
+
+/* logo */
+.logo {
+  width: 190px;
+  height: 170px;
+  /* background-color: purple; */
+  position: absolute;
+  left: 0;
+  top: -30px;
+  box-shadow: 0 -12px 10px rgba(0,0,0,.2);
+}
+
+.logo h1 {
+  margin: 0;
+}
+
+.logo a {
+  display: block;
+  width: 190px;
+  height: 170px;
+  background: url(../images/logo.jpg) no-repeat;
+  /* 首行缩进 */
+  text-indent: -999px;
+  overflow: hidden;
+}
+
+.search {
+  width: 550px;
+  height: 35px;
+  /* background-color: purple; */
+  left: 320px;
+  top: 25px;
+  position: absolute;
+}
+
+.search input {
+  width: 493px;
+  height: 33px;
+  border: 1px solid #f10215;
+  padding-left: 5px;
+  outline: none;
+  float: left;
+  font-size: 14px;
+}
+/* 行内块元素之间会有空隙，可以通过设置float  */
+.search button {
+  width: 50px;
+  height: 35px;
+  background-color: #f10215;
+  float: left;
+}
+
+.search button i {
+  font-family: 'icomoon';
+  font-style: normal;
+  color: #fff;
+  font-size: 18px;
+}
+
+.search span {
+  position: absolute;
+  top: 10px;
+  right: 65px;
+  width: 19px;
+  height: 15px;
+  cursor: pointer;
+  background: url(../images/sprite-search.png) no-repeat;
+}
+
+.search span:hover {
+  background-position: -30px 0;
+}
+
+.hotwords {
+  position: absolute;
+  width: 550px;
+  left: 320px;
+  top: 70px;
+  overflow: hidden;
+}
+
+.hotwords a {
+  color: #9e9b99;
+  font-size: 14px;
+}
+
+.hotwords a:hover {
+  color: #f10215;
+}
+
+.mycar {
+  width: 188px;
+  height: 33px;
+  border: 1px solid #ccc;
+  position: absolute;
+  top: 25px;
+  right: 100px;
+  text-align: center;
+  line-height: 33px;
+}
+
+.mycar a {
+  font-size: 12px;
+  color: #f10215;
+}
+
+.mycar i {
+  font-family: 'icomoon';
+  font-style: normal;
+  color: #f10215;
+  margin-right: 3px;
+
+}
+
+.mycar s {
+  position: absolute;
+  top: 5px;
+  left: 140px;
+  text-decoration: none;
+  background-color: #f10215;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  padding: 0 3px;
+  color: #fff;
+  border-radius: 7px;
+}
+
+.computer {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  
+}
