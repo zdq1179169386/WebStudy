@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 第一个字符 */
+    p::first-letter {
+      color: red;
+    }
+    /* 第一行 */
+    p::first-line {
+      background-color: lightgray;
+    }
+    /* 选中的样式 */
+    p::selection {
+      color: aqua;
+      background-color: blue;
+    }
+    /* 在内容前面插入元素 */
+    .second::before {
+      content: '我';
+      color: red;
+    }
+    /* 在内容后面插入 */
+    .second::after {
+      content: '18岁';
+      font-size: 20px;
+    }
+    /*  content-box : 盒子大小 = width + padding + border */
+    /*  border-box : 盒子大小 =  width ， padding 和border 包含在 width 里面 */
+    .red {
+       /* box-sizing: border-box; */
+       box-sizing: content-box;
+       width: 200px;
+       height: 200px;
+       background-color: pink;
+       padding: 30px;
+       border: 10px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>
+      标签定义选项列表。请与 input 元素配合使用该元素，来定义 input 可能的值。
+datalist 及其选项不会被显示出来，它仅仅是合法的输入值列表。
+请使用 input 元素的 list 属性来绑定 datalist。
+   </p>
+  </div>
+  <div>
+    <div class="second">
+      今年
+    </div>
+  </div> 
+  
+  <div class="red">
+  </div>
+</body>
+</html>

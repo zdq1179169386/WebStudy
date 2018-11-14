@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 632px;
+      height: 340px;
+      position: relative;
+    }
+    /* 插入伪元素 */
+    div:hover::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* border 会撑开盒子，改变css3 的内减模式 */
+      box-sizing: border-box;
+      border: 10px solid rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div><img src="files/mi.jpg" alt=""></div>
+</body>
+</html>
