@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
   <title>Document</title>
   <style>
     @font-face {
-		  font-family: 'icomoon';
-		  src:  url('fonts/icomoon.eot?hrstq9');
-		  src:  url('fonts/icomoon.eot?hrstq9#iefix') format('embedded-opentype'),
-		    url('fonts/icomoon.ttf?hrstq9') format('truetype'),
-		    url('fonts/icomoon.woff?hrstq9') format('woff'),
-		    url('fonts/icomoon.svg?hrstq9#icomoon') format('svg');
-		  font-weight: normal;
-		  font-style: normal;
-		}
+      font-family: 'icomoon';
+      src: url('fonts/icomoon.eot?hrstq9');
+      src: url('fonts/icomoon.eot?hrstq9#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?hrstq9') format('truetype'),
+        url('fonts/icomoon.woff?hrstq9') format('woff'),
+        url('fonts/icomoon.svg?hrstq9#icomoon') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     div {
       width: 200px;
       height: 30px;
@@ -24,6 +26,7 @@
       font-family: 'icomoon';
       position: relative;
     }
+
     div::before {
       content: '\ea51';
       position: absolute;
@@ -31,18 +34,22 @@
       top: 6px;
       transition: all 0.5s;
     }
+
     div:hover {
       border: 1px solid red;
     }
+
     div:hover::before {
       color: red;
       transform: rotate(180deg);
     }
   </style>
 </head>
+
 <body>
   <div>
 
   </div>
 </body>
+
 </html>
