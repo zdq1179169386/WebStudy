@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>结构伪类选择器和属性选择器</title>
+  <style>
+    li:first-child {
+      background-color: lightgray;
+    }
+    li:last-child {
+      background-color: lightgray;
+    }
+    /* 偶数 */
+    li:nth-child(even) {
+      color: red;
+    }
+    /* 奇数 */
+    li:nth-child(odd) {
+      color: blue;
+    }
+    /* 4 的倍数 */
+    li:nth-child(4n) {
+      font-size: 20px;
+    }
+
+    /* 属性选择 */
+    /* 所有有class 的 */
+    #second div[class] {
+      background-color: lightgray;
+    }
+    /* 根据类名选择 */
+    #second div[class=first] {
+      color: red;
+    }
+    /* 以 test 开头的 */
+    #second div[class^=test] {
+      color: blueviolet;
+    }
+    /* 以test 结尾的 */
+    #second div[class$=test] {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+      <ul>
+          <li>结构伪类选择器</li>
+          <li>结构伪类选择器</li>
+          <li>结构伪类选择器</li>
+          <li>结构伪类选择器</li>
+          <li>结构伪类选择器</li>
+          <li>结构伪类选择器</li>
+        </ul>
+  </div>
+  <div id="second">
+      <div class="first">属性选择器</div>
+      <div>属性选择器</div>
+      <div class="test">属性选择器</div>
+      <div class="test1">属性选择器</div>
+      <div class="firsttest">属性选择器</div>
+  </div>
+</body>
+</html>

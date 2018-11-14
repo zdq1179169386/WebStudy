@@ -142,7 +142,7 @@
 
 .user {
   height: 95px;
-  background-color: pink;
+  /* background-color: pink; */
   padding: 20px 15px 0;
 }
 
@@ -250,7 +250,7 @@
   height: 209px;
   width: 190px;
   /* background-color: blue; */
-  /* 应该用爷爷去ul 中 li 的边框 */
+  /* 应该用爷爷去除 ul 中 li 的边框 */
   overflow: hidden;
 }
 

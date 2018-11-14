@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+      <form action="">
+          <!-- autofocus ： 自动聚焦 -->
+          <input type="text" placeholder="请输入用户名" autofocus> <br/>
+          <!-- multiple ： 多选 -->
+          <input type="file" multiple><br/>
+          <!-- required : 不能为空 -->
+          <input type="text" required><br/>
+        </form>  
+  </div>
+  <div>
+    <!-- safari 不支持 -->
+    <input type="text" list="star">
+    <datalist id="star">
+      <option value="刘德华">
+      <option value="刘亦菲">
+      <option value="刘欢">
+    </datalist>
+  </div>
+  <div>
+    <!-- autoplay : 自动播放， controls ： 播放界面 ，  loop ： 循环播放 -->
+    <audio src="files/bgsound.mp3" autoplay="autoplay" controls loop></audio>
+  </div>
+  <div>
+    <audio controls loop>
+      <!-- <source src="files/bgsound.mp3"> -->
+        <!-- 浏览器版本太低 -->
+      <source src="files/music.ogg">
+    </audio>
+  </div>
+  <div>
+      <video  autoplay controls>
+          <source src="files/movie04.ogg">
+          <!-- <source src="files/mp4.mp4"> -->
+      </video>
+  </div>
+</body>
+</html>
