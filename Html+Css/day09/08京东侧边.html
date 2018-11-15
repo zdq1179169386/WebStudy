@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+    }
+    li {
+      list-style: none;
+    }
+    .first {
+      width: 283px;
+      height: 230px;
+      border: 1px solid red;
+      overflow: hidden;
+      margin: 20px auto;
+    }
+    .first img {
+      width: 293px;
+      height: 230px;
+      transition: all 0.3s;
+    }
+    .first:hover img {
+      margin-left: -10px;
+    }
+
+    .second {
+      margin: 30px auto;
+      background-color: lightgray;
+      width: 300px;
+    }
+    .second ul {
+      float: right;
+    }
+    .second li{
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      margin: 5px 0;
+      position: relative;
+    }
+    .second li div {
+      position: absolute;
+      right: 0px;
+      top: 0;
+      height: 20px;
+      width: 0;
+      background-color: purple;
+      transition:  all 0.4s;
+      z-index: -1;
+    }
+
+    .second li:hover div {
+      width: 100px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="first">
+    <img src="images/1.jpg" >
+  </div>
+  <div class="second">
+    <ul>
+      <li>
+        <div></div>
+      </li>
+      <li>
+        <div></div>
+      </li>
+      <li>
+        <div></div>
+      </li>
+      <li>
+        <div></div>
+      </li>
+      <li>
+        <div></div>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

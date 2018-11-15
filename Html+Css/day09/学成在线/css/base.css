@@ -1,6 +1,8 @@
 * {
   margin: 0;
-  padding: 0
+  padding: 0;
+  /* css3 盒子  不用考虑加了padding 和border 之后去减 盒子宽度了 */
+  box-sizing: border-box;
 }
 
 em,
@@ -57,4 +59,10 @@ body {
 
 .clearfix {
   *zoom: 1
+}
+
+/* 版心 */
+.w {
+  width: 1200px;
+  margin: auto;
 }
