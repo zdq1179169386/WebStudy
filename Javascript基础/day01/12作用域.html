@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    {
+      var num = 10;
+      console.log(num);
+    }
+    console.log(num);
+    这个代码num 居然能在括号外输出，js 没有块级作用域
+    */
+
+    /*
+    全局变量：在函数外定义的变量，
+    局部变量：在函数内定义的变量，
+    隐式全局变量：不用var 声明的变量，
+    */ 
+    var num1 = 10;
+    num2 = 20;
+    delete num1;
+    delete num2;
+    // 隐式全局变量可以被删除，
+    console.log(typeof num1);
+    console.log(typeof num2);
+    
+    // 作用域链
+    var fa = 10;
+    function f1(){
+      var fa = 20;
+      function f2(){
+        var fa = 30;
+        function f3(){
+          var fa = 40;
+          console.log(fa);
+        }
+        f3();
+      }
+      f2();
+    }
+    f1();
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 预解析把变量的声明提升当前作用域的最前面，只会提前声明，不会提升赋值，
+    // 把函数的声明提前到当前作用域的最前面，只会提前声明，不会提前调用
+    // 预解析：提前解析代码
+    // 输出的结果没有报错 是undefined ， 把声明提前了 ，
+    console.log(num);
+    var num = 10;
+    /*
+    预解析会 在函数调用的时候，会自动将函数的声明提前
+    */ 
+    f1();
+    function f1(){
+      console.log("在函数调用的时候，会自动将函数的声明提前");
+    }
+
+    /*
+    会先在f2 的作用域里找，预解析将num2 的声明提前了，赋值没有提前，所以，不会输出全局的num2 ，而是会输出 局部 没赋值 的num2 ，所以是undefined
+    */ 
+    f2();
+    var num2 = 20;
+    function f2(){
+      console.log(num2);
+      var num2= 10;
+    }
+
+    /*
+    预解析会将代码转化为下面的样子
+    var num3;
+    function f3(){
+      console.log(num3);
+    }
+    f3()
+    num3 = 20;
+    结果还是undefined ，先把函数声明提前到函数调用之前的位置，要用到num3 的时候，也会将num3 的声明提前
+    */ 
+   
+    f3();
+    var num3 = 20;
+    function f3(){
+      console.log(num3);
+    }
+    // 预解析是分段的
+    f4();
+    function f4(){
+      console.log("f4--");
+    }
+    
+    f5();
+    console.log(c);//9
+    console.log(b);//9
+    console.log(a);//报错
+    function f5(){
+      /*
+        var a = b = c = 9;相当于下面的代码
+        var a;
+        a = 9;
+        b = 9;
+        c = 9;
+        b 和 c 是隐式全局变量，a 是局部变量
+      */ 
+      var a = b = c = 9;
+      console.log(a);
+      console.log(b);
+      console.log(c);
+    }
+
+  </script>
+  <script>
+    f4();
+    function f4(){
+      console.log("f4++");
+    }
+    /*
+    报错：将f6 提前之后是 undefined 变量，不是函数声明
+    */ 
+    /*
+    f6();
+    var f6 = function (){
+      console.log(a)
+      var a = 10;
+    }
+    */ 
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    var x = 2;
+    // 声明
+    function eat() {
+      console.log("eat" + self.x);
+    }
+    // 调用
+    eat();
+    // 定义的叫形参，传入的叫实参,返回值
+    function add(x, y) {
+      console.log(x + y);
+      return x + y;
+    }
+    add(1, 2);
+
+    function qiuhe(n, m) {
+      if (n < m) {
+        var sum = 0;
+        for (var i = n; i <= m; i++) {
+          sum += i;
+        }
+        return sum;
+      }
+    }
+    console.log(qiuhe(1, 100));
+
+    function getMax(num1, num2) {
+      return num1 > num2 ? num1 : num2;
+    }
+    console.log(getMax(10, 20));
+
+    function getArrMax(array) {
+      var max = array[0];
+      for (var i = 1; i < array.length; i++) {
+        if (max < array[i]) {
+          max = array[i];
+        }
+      }
+      return max;
+    }
+    console.log(getArrMax([6, 2, 3, 4, 5]));
+
+    function isLeapYear(year) {
+      return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+
+    function getDays(year, month, day) {
+      var days = day;
+      if (month == 1) {
+        return days;
+      }
+      var months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      for (var i = 0; i < month - 1; i++) {
+        days += months[i];
+      }
+      if (isLeapYear(year) && month > 2) {
+        days++;
+      }
+      return days;
+    }
+    console.log(getDays(2017, 3, 2));
+
+    /* 函数表达式： 把一个函数赋值给一个变量叫函数表达式 */ 
+    // 匿名函数
+    var f3 = function (){
+      console.log("匿名函数");
+    };
+    f3();
+    // 函数的自调用，没有函数名，声明的同时调用
+    (function(){console.log("阿尼哈西");})();
+
+    // 函数也是一种数据类型
+    function f1(){
+      console.log("22");
+    }
+    console.log(typeof f1);//function
+    // 函数作为参数调用
+    // 如果一个函数可以作为参数使用，我们可以叫这个函数叫回调函数
+    function f2(fn){
+      fn();
+    }
+    function f4(){
+      console.log("ssss");
+    }
+    f2(f4);
+    // 函数作为返回值使用
+    function fa(){
+      console.log("这是一个函数");
+      return function (){
+        console.log("这是一个匿名函数");
+      }
+    }
+    var fb = fa();
+    // 调用匿名函数
+    fb();
+
+  </script>
+</head>
+
+<body>
+  <script>
+
+  </script>
+</body>
+
+</html>
