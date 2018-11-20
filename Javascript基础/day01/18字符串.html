@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // string 基本类型，字符串
+    // String 引用类型，对象
+    // 根据index 返回字符
+    var str = "qwertyu";
+    console.log(str.charAt(3));
+    // 
+    console.log(String.fromCharCode(65, 66, 67));
+
+    // 拼接字符串
+    console.log(str.concat("+zdq"));
+
+    console.log(str.indexOf("yu"));
+
+    // 第二个参数从第几个位置开始找
+    "Blue Whale".indexOf("Whale", 0); // returns  5
+    // 从后往前找
+    console.log(str.lastIndexOf("rt"));
+    // 替换
+    console.log(str.replace("qwe", "ewq"));
+
+    // 截取字符串，从倒数第三的位置 截取到 倒数第一的位置
+    console.log(str.slice(-3, -1));
+    // 根据指定字符分割字符串，返回字符数组
+    var str1 = "Webkit Moz O ms Khtml";
+    console.log(str1.split(" "));
+
+    var myString = "Hello World. How are you doing?";
+    // 第二个参数：留下的字符串个数
+    var splits = myString.split(" ", 3);
+    console.log(splits);
+
+    // 开始位置和长度
+    console.log(str1.substr(2, 3));
+    // 开始位子和结束位置，不包含结束位置
+    console.log(str1.substring(2, 6));
+    var str3 = "Hello";
+    // 转小写
+    console.log(str3.toLocaleLowerCase());
+    console.log(str3.toLowerCase());
+    // 转大写
+    console.log(str3.toLocaleUpperCase());
+    console.log(str3.toUpperCase());
+    // 只能移除两端 的空格，中间 的空格 去不掉
+    var str4 = " 两端 有空格 ";
+    console.log(str4.trim());
+
+    // 循环找一个字符的index 
+    var str5 = "hello ood fto weo";
+    var index = 0;
+    var key = "o";
+    while ((index = str5.indexOf(key, index)) != -1) {
+      console.log(index);
+      index += key.length;
+    }
+   
+  </script>
+</body>
+
+</html>

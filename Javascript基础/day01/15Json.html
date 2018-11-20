@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 值类型：传递的是值，引用类型：传递的是地址
+    // json 对象 ，json 的属性都是字符串 ，
+    var json = {
+      "name" : "jack",
+      "age" : 20,
+    };
+    for (const key in json) {
+      if (json.hasOwnProperty(key)) {
+        const element = json[key];
+        console.log(element);
+      }
+    }
+    for(var key in json){
+      console.log(json[key]);
+    }
+    // 案例
+    /*
+    var obj1 = {
+      name : "jack",
+    }
+    function f1(obj){
+      obj.name = "zdq";
+    }
+    console.log(obj1.name);
+    f1(obj1);
+    console.log(obj1.name);
+    */
+    
+    /*
+     var num = 50;
+    function f2(num){
+      num = 60;
+      console.log(num);
+    }
+    f2(num);
+    console.log(num);
+    */ 
+
+    /*
+    var num1 = 55;
+    var num2 = 60;
+    function f3(num,num1){
+      num = 100;
+      num1 = 100;
+      num2 = 100;
+      console.log(num);
+      console.log(num1);
+      console.log(num2);
+    }
+    f3(num1,num2);
+    console.log(num1);//55
+    console.log(num2);//100
+    console.log(num);//报错
+    */ 
+    
+    /*
+    function Person(name,age){
+      this.name = name;
+      this.age = age;
+    }
+    function f4(person){
+      person.name = "ls";
+      person = new Person("as",10);
+    }
+    var p = new Person("js",20);
+    console.log(p.name);
+    f4(p);
+    console.log(p.name);
+    */
+  </script>
+</body>
+</html>

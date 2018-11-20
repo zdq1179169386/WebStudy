@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     // 在某个字符串里寻找每个字符出现的次数
+     var str6 = "qwertyuiopwteioeyqte";
+    str6 = str6.toLocaleLowerCase();//转小写
+    var obj = {};
+    for(var i = 0; i < str6.length; i++){
+      var key = str6[i];
+      if(obj[key]){
+          obj[key]++;
+      }else {
+          obj[key] = 1;
+      }
+    }
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const element = obj[key];
+        console.log(key+"这个字符出现了"+element+"次");
+      }
+    }
+  </script>
+</body>
+</html>

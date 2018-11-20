@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 创建对象
+    /*var date = new Date();
+    console.log(date);
+    var date1 = new Date("2017-8-7 12:32");
+    console.log(date1);
+    var date2 = Date.now();
+    // 毫秒数
+    console.log(date2);
+    */
+    // 获取年份
+   var date = new Date();
+   console.log(date.getFullYear());
+  // 国外的月份s 0 到 11 月
+   console.log(date.getMonth());
+  //  星期几
+   console.log(date.getDay());
+    // 日期
+   console.log(date.getDate());
+  //  小时
+  console.log(date.getHours());
+  // 分钟
+  console.log(date.getMinutes());
+  // 秒数
+  console.log(date.getSeconds());
+  // 英文的日期
+  console.log(date.toDateString());
+//  数字格式的日期
+  console.log(date.toLocaleDateString());
+  // 24进制 小时分钟秒
+  console.log(date.toTimeString());
+  // 12进制
+  console.log(date.toLocaleTimeString());
+
+    // 毫秒数
+  console.log(date.valueOf());
+
+  </script>
+</body>
+</html>
