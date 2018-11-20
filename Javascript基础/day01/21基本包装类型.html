@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    基本类型，在执行过程中，调用了属性或者方法，那么这种类型就不再是基本类型，而是基本包装类型
+    */ 
+    var str = "hello";//变量
+    str = str.replace("ll","hh");
+    console.log(str);
+
+    
+    var flag = new Boolean(false);
+    var result = flag&&true;
+    console.log(result);
+
+    var num = 10;//变量
+    var num1 = Number("10");//类型转换
+    var num2 = new Number("10");//基本包装类型
+    console.log(num,num1,num2);
+  </script>
+</body>
+</html>
