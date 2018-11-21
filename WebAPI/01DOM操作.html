@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 直接写js代码 -->
+    <input type="button" value="点击" onclick="alert('ssss')">
+
+    <br/>
+    <script>
+        function f1(){
+            alert("aaa");
+        }
+    </script>
+    <!-- 传入function -->
+    <input type="button" value="点击" onclick="f1()">
+    <br/>
+
+    <input type="button" value="点击" id="btn">
+    <br/>
+    
+    <script>
+        document.getElementById("btn").onclick = function (){
+            alert("匿名函数");
+        };
+    </script>
+
+
+</body>
+</html>
