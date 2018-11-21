@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a id="ida" href="../Html+Css/day08/images/2.jpg"><img id="img" src="../Html+Css/day08/images/3.jpg" alt=""></a>
+  <script>
+    document.getElementById("img").onclick = function (){
+      this.src = document.getElementById("ida").href;
+      // 不跳转
+      return false;
+    }
+  </script>
+</body>
+</html>

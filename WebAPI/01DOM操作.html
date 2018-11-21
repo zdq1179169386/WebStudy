@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- 元素： 标签，
+        节点： 文本，
+     -->
     <!-- 直接写js代码 -->
     <input type="button" value="点击" onclick="alert('ssss')">
 
@@ -28,7 +31,20 @@
             alert("匿名函数");
         };
     </script>
-
-
+    
+    <!-- <script>
+        // 原型链
+        var Student = {
+             name : "名字",
+             run : function (){
+                 console.log(this.name + "run");
+             },
+        };
+        var xiaoming = {
+            name : "小明",
+        };
+        xiaoming.__proto__ = Student;
+        xiaoming.run();
+    </script> -->
 </body>
 </html>
