@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="修改" id="btn">
+    <div id="div"></div>
+    <script>
+        function my$(id){
+            return document.getElementById(id);
+        }
+    </script>
+    <script>
+        my$("btn").onclick = function (){
+            my$("div").style.width = "200px";
+            my$("div").style.height = "300px";
+            my$("div").style.backgroundColor = "hotpink";
+        }
+       
+    </script>
+</body>
+</html>

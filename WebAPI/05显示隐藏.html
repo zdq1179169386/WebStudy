@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+    </script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: hotpink;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 通过css 控制显示隐藏 -->
+    <input type="button" value="隐藏" id="btn">
+    <div id="dv"></div>
+    <script>
+        my$("btn").onclick = function () {
+            if (my$("btn").value == "隐藏") {
+                my$("dv").style.display = "none";
+                my$("btn").value = "显示";
+            } else {
+                my$("dv").style.display = "block";
+                my$("btn").value = "隐藏";
+            }
+        };
+    </script>
+    <br/>
+    <!-- 通过类名控制显示隐藏 -->
+    <input type="button" value="隐藏" id="btn1">
+    <div id="dv1"></div>
+    <script>
+        my$("btn1").onclick = function () {
+            if (my$("dv1").className != "hidden") {
+                my$("dv1").className= "hidden";
+                my$("btn1").value = "显示";
+            } else {
+                my$("dv1").className= "";
+                my$("btn1").value = "隐藏";
+            }
+        };
+    </script>
+</body>
+
+</html>
