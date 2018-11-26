@@ -11,7 +11,7 @@
 <body>
     <script>
         // 给内置对象的原型添加方法，相当于修改源码
-        // 位内置对象添加冒泡排序
+        // 位内置对象Array 添加冒泡排序
         Array.prototype.mySort = function () {
             for (var i = 0; i < this.length; i++) {
                 for (var j = i + 1; j < this.length; j++) {
@@ -28,6 +28,7 @@
         console.log(arr);
     </script>
     <script>
+        // 函数的自调用
         (function (win) {
             // 局部变量变成全局变量
             var num = 10;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- gei window 添加 随机数函数 -->
+    <!-- 给 window 添加 随机数函数 -->
     <script>
         (function (win) {
             function Random() {
@@ -20,11 +20,11 @@
         console.log(Random.getRandom(0, 40));
     </script>
     <style>
-        div {
+        .map {
             width: 800px;
             height: 600px;
             background-color: gray;
-            /*子绝父相*/ 
+            /*子绝父相*/
             position: relative;
         }
     </style>
@@ -33,10 +33,11 @@
 
 <body>
     <div class="map"></div>
-
+    
     <script>
-        (function (window) {
-            var map = document.querySelector(".map");
+        // 食物
+        (function () {
+            var elements = [];
             // 食物构造
             function Food(width, height, color) {
                 this.width = width || 20;
@@ -44,29 +45,75 @@
                 this.color = color;
                 this.x = 0;
                 this.y = 0;
-                this.elemnt = document.createElement("div");
-            };
-            Food.prototype.init = function (map) {
-                var div = this.elemnt;
-                div.style.position = "absoulte";
-                div.style.width = this.width + "px";
-                div.style.height = this.height + "px";
-                div.style.backgroundColor = this.color;
-                map.appendChild(div);
-                this.render(map);
-            };
-            Food.prototype.render = function (map) {
-                this.x = Random.getRandom(0, map.offsetWidth / this.width) * this.width;
-                this.y = Random.getRandom(0, map.offsetHeight / this.height) * this.height;
-                this.elemnt.style.left = this.x + "px";
-                this.elemnt.style.top = this.y + "px";
-                console.log(this.elemnt.style.left);
-
             }
-            var food = new Food(20, 20, "pink");
-            food.init(map);
-        })(window);
-
+            Food.prototype.init = function (map) {
+                this.remove();
+                var ele = document.createElement("div");
+                map.appendChild(ele);
+                ele.style.width = this.width + "px";
+                ele.style.height = this.height + "px";
+                // 脱离文档流
+                ele.style.position = "absolute";
+                ele.style.backgroundColor = this.color;
+                this.x = parseInt(Math.random() * (map.offsetWidth / this.width)) * this.width;
+                this.y = parseInt(Math.random() * (map.offsetHeight / this.height)) * this.height;
+                ele.style.left = this.x + "px";
+                ele.style.top = this.y + "px";
+                elements.push(ele);
+            };
+            Food.prototype.remove = function () {
+                for (var i = 0; i < elements.length; i++) {
+                    var ele = elements[i];
+                    ele.parentNode.removeChild(ele);
+                    elements.splice(i, 1);
+                }
+            };
+            window.Food = Food;
+        })();
+        (function () {
+            // 蛇
+            function Snake(width, height, direction) {
+                this.width = width || 20;
+                this.height = height || 20;
+                // 身体
+                this.body = [{
+                    x: 3,
+                    y: 2,
+                    color: "red"
+                }, {
+                    x: 2,
+                    y: 2,
+                    color: "orange"
+                }, {
+                    x: 1,
+                    y: 2,
+                    color: "orange"
+                }];
+                this.direction = direction || "right";
+            };
+            var elements = [];
+            Snake.prototype.init = function (map) {
+                for (var i = 0; i < this.body.length; i++) {
+                    var obj = this.body[i];
+                    var div = document.createElement("div");
+                    map.appendChild(div);
+                    // 脱离文档流
+                    div.style.position = "absolute";
+                    div.style.width = this.width + "px";
+                    div.style.height = this.height + "px";
+                    div.style.left = obj.x * this.width + "px";
+                    div.style.top = obj.y * this.height + "px";
+                    div.style.backgroundColor = obj.color;
+                    elements.push(div);
+                }
+            };
+            window.Snake = Snake;
+        })();
+        var map = document.querySelector(".map");
+        var food = new Food(20, 20, "pink");
+        food.init(map);
+        var s1 = new Snake();
+        s1.init(map);
     </script>
 </body>
 
