@@ -33,21 +33,21 @@
 
 <body>
     <div class="map"></div>
-    
+
     <script>
-        // 食物
         (function () {
+            // 食物
             var elements = [];
             // 食物构造
-            function Food(width, height, color) {
+            function Food(x,y,width, height, color) {
                 this.width = width || 20;
                 this.height = height || 20;
-                this.color = color;
-                this.x = 0;
-                this.y = 0;
+                this.color = color || "pink";
+                this.x = x || 0;
+                this.y = y || 0;
             }
             Food.prototype.init = function (map) {
-                this.remove();
+                remove();
                 var ele = document.createElement("div");
                 map.appendChild(ele);
                 ele.style.width = this.width + "px";
@@ -61,7 +61,8 @@
                 ele.style.top = this.y + "px";
                 elements.push(ele);
             };
-            Food.prototype.remove = function () {
+            // 删除
+            function remove () {
                 for (var i = 0; i < elements.length; i++) {
                     var ele = elements[i];
                     ele.parentNode.removeChild(ele);
@@ -93,6 +94,7 @@
             };
             var elements = [];
             Snake.prototype.init = function (map) {
+                remove();
                 for (var i = 0; i < this.body.length; i++) {
                     var obj = this.body[i];
                     var div = document.createElement("div");
@@ -107,13 +109,90 @@
                     elements.push(div);
                 }
             };
+            // 移动
+            Snake.prototype.move = function (food, map) {
+                for (var i = this.body.length - 1; i > 0; i--) {
+                    this.body[i].x = this.body[i - 1].x;
+                    this.body[i].y = this.body[i - 1].y;
+                }
+                switch (this.direction) {
+                    case "right":
+                        this.body[0].x += 1;
+                        break;
+                    case "left":
+                        this.body[0].x -= 1;
+                        break;
+                    case "top":
+                        this.body[0].y -= 1;
+                        break;
+                    case "bottom":
+                        this.body[0].y += 1;
+                        break;
+                }
+            }
+            // 删除上一条蛇
+            function remove(){
+                for(var i = 0; i < elements.length; i++){
+                    var ele = elements[i];
+                    ele.parentNode.removeChild(ele);
+                    elements.splice(i,1);
+                }
+            }
             window.Snake = Snake;
+
+        })();
+        (function () {
+            var that = null;
+            function Game(map) {
+                this.food = new Food();
+                this.snake = new Snake();
+                this.map = map;
+                that = this;
+            }
+            Game.prototype.init = function () {
+                this.food.init(this.map);
+                this.snake.init(this.map);
+                // 定时器
+                this.run(this.food, this.map);
+                // 监听键盘输入
+                this.bindkey();
+            }
+            Game.prototype.run = function (food, map) {
+              var timerId = setInterval(function () {
+                    this.snake.move(food, map);
+                    this.snake.init(map);
+                    var maxX = map.offsetWidth / this.snake.width;
+                    var maxY = map.offsetHeight / this.snake.height;
+                    var headx = this.snake.body[0].x;
+                    var heady = this.snake.body[0].y;
+                    if(headx< 0 || headx >= maxX){
+                        clearInterval(timerId);
+                        alert("game over");
+                    }
+                    if(heady< 0 || heady >= maxY){
+                        clearInterval(timerId);
+                        alert("game over");
+                    }
+                    
+                }.bind(that), 150);
+            }
+            // 获取按键
+            Game.prototype.bindkey = function (){
+                document.addEventListener("keydown",function (e){
+                    // 这里的this 指的是document 
+                    switch (e.keyCode){
+                        case 37 : this.snake.direction = "left";break;
+                        case 38 : this.snake.direction = "top";break;
+                        case 39 : this.snake.direction = "right";break;
+                        case 40 : this.snake.direction = "bottom";break;
+                    }
+                }.bind(that),false);
+            }
+            window.Game = Game;
         })();
         var map = document.querySelector(".map");
-        var food = new Food(20, 20, "pink");
-        food.init(map);
-        var s1 = new Snake();
-        s1.init(map);
+        var game = new Game(map);
+        game.init();
     </script>
 </body>
 
