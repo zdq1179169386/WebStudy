@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function Person (name,age){
+            this.name = name;
+            this.age = age;
+        }
+        var p1 = new Person("zdq",20);
+        console.dir(p1);
+        console.dir(Person);
+        // p1 的构造函数 是  Person
+        console.log(p1.constructor==Person);
+        console.log(p1.__proto__.constructor);
+        console.log(Person.prototype.constructor);
+        // 实例对象 的 构造函数 和  Person 的构造函数 是一样的
+        console.log(p1.__proto__.constructor == Person.prototype.constructor);
+    </script>
+    /*
+     构造函数可以实例化对象
+     构造函数中有个prototype，是构造函数的原型对象
+     构造函数的原型对象（prototype）中有个constructor构造器指向的就是自己所在的原型对象所在的构造函数
+     实例对象的原型对象（__proto__）指向的是该构造函数的原型对象
+     构造函数的原型对象（prototype）中的方法可以被实例对象直接访问
+     共享的数据可以放在原型对象中
+    */
+</body>
+</html>

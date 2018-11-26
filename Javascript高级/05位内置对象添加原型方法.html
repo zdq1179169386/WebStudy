@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给内置对象的原型添加方法，相当于修改源码
+        // 位内置对象添加冒泡排序
+        Array.prototype.mySort = function () {
+            for (var i = 0; i < this.length; i++) {
+                for (var j = i + 1; j < this.length; j++) {
+                    if (this[i] < this[j]) {
+                        var temp = this[j];
+                        this[j] = this[i];
+                        this[i] = temp;
+                    }
+                }
+            }
+        };
+        var arr = [16, 1, 2, 9, 7, 12, 5, 3, 8, 13, 10];
+        arr.mySort()
+        console.log(arr);
+    </script>
+    <script>
+        (function (win) {
+            // 局部变量变成全局变量
+            var num = 10;
+            window.num = num;
+        })(window);
+        console.log(num);
+    </script>
+</body>
+
+</html>

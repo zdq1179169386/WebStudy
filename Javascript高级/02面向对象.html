@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+    </script>
+    <style>
+        div {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="改变颜色" id="btn"/>
+    <div id="dv"></div>
+    <script>
+
+        function ChangeStyle(btnObj, divObj, json) {
+            this.btnObj = btnObj;
+            this.divObj = divObj;
+            this.json = json;
+        };
+
+       
+        ChangeStyle.prototype.init = function () {
+             //给原型添加方法
+            // 先保留cs 对象
+            var that = this;
+            this.btnObj.onclick = function () {
+                // 这里面的this 指向的是 btn 对象
+                for (var key in that.json) {
+                    that.divObj.style[key] = that.json[key];
+                }
+            }
+        };
+        var json = {
+            "width": "200px",
+            "height": "200px",
+            "backgroundColor": "hotpink"
+        };
+        var cs = new ChangeStyle(my$("btn"), my$("dv"), json);
+        cs.init();
+    </script>
+</body>
+
+</html>

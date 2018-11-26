@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student (name,age){
+            this.name = name;
+            this.age = age;
+        }
+        Student.prototype = {
+            // 手动将原型对象的构造函数指向 Student
+            constructor: Student,
+            height : "178",
+            weight : "80kg",
+            study : function (){
+                console.log("study");
+            },
+        }
+        var stu1 = new Student("zdq","27");
+        stu1.study();
+        console.dir(stu1);
+        console.dir(Student);
+    </script>
+</body>
+</html>

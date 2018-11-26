@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 原型对象中的方法可以相互调用
+        function Animal(name,age){
+            this.name = name;
+            this.age = age;
+        };
+        Animal.prototype.eat = function (){
+            console.log("eat");
+            this.sleep();
+        };
+        Animal.prototype.sleep = function (){
+            console.log("sleep");
+        }
+        var dog = new Animal("小狗",20);
+        dog.eat();
+    </script>
+    // 实例对象中的属性和方法如果没有，就去实例对象的原型对象（__proto__）中去找,找不到则报错
+</body>
+</html>
