@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- js 中没有类的概念，可以通过构造函数来模拟类，可以通过原型来实现继承
+    原型的作用： 共享数据，实现继承
+   -->
+   <script>
+     function Person(name,age){
+       this.name = name;
+       this.age = age;
+     }
+     Person.prototype.eat = function (){
+       console.log("eat");
+     }
+     function Student(score){
+       this.score = score;
+     }
+     Student.prototype = new Person("小米",20);
+    //  要重新将原型对象的constructor 指向 Student
+     Student.prototype.constructor = Student;
+     Student.prototype.study = function (){
+       console.log("学习");
+     }
+     var stu = new Student(90);
+     console.log(stu.name);
+     console.log(stu.age);
+     console.log(stu.score);
+     stu.eat();
+     stu.study();
+     console.log(Student.prototype.constructor);
+     console.log(Person.prototype.constructor);
+
+   </script>
+</body>
+</html>

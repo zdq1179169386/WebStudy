@@ -129,6 +129,19 @@
                         this.body[0].y += 1;
                         break;
                 }
+                var headx = this.body[0].x * this.width;
+                var heady = this.body[0].y * this.height;
+                // 蛇头和食物相碰撞
+                if(headx == food.x && heady == food.y){
+                    var last = this.body[this.body.length - 1];
+                    //复制最后一个，然后添加进去
+                    this.body.push({
+                        x:last.x,
+                        y:last.y,
+                        color:last.color,
+                    })
+                    food.init(map);
+                }
             }
             // 删除上一条蛇
             function remove(){
@@ -147,6 +160,7 @@
                 this.food = new Food();
                 this.snake = new Snake();
                 this.map = map;
+                // 存储this 的指向
                 that = this;
             }
             Game.prototype.init = function () {
@@ -173,7 +187,7 @@
                         clearInterval(timerId);
                         alert("game over");
                     }
-                    
+                    // bind 能改变this 的指向
                 }.bind(that), 150);
             }
             // 获取按键
@@ -181,6 +195,7 @@
                 document.addEventListener("keydown",function (e){
                     // 这里的this 指的是document 
                     switch (e.keyCode){
+                        // 修改蛇头的方向
                         case 37 : this.snake.direction = "left";break;
                         case 38 : this.snake.direction = "top";break;
                         case 39 : this.snake.direction = "right";break;

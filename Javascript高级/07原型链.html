@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person () {
+
+    }
+    var per = new Person();
+    console.dir(per)
+    console.dir(Person);
+    console.dir(Object);
+    console.log(Person.prototype.__proto__);
+    console.log(per.__proto__ == Person.prototype);
+    console.log(per.__proto__.__proto__ == Person.prototype.__proto__);
+    console.log(Person.prototype.__proto__ == Object.prototype);
+    console.log(Object.prototype);
+    console.log(Object.prototype.__proto__);
+    /*
+    实例对象的原型__proto__ 指向的是，构造函数的原型Prototype ,构造函数的原型Prototype 也有个 __proto__ 的属性 指向的 是Object 的原型prototype，
+    而Object 的prototype 原型的 __proto__ 指向的是 null
+    */ 
+  </script>
+</body>
+</html>
