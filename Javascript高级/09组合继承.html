@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 组合继承
+      function Person (name ,age){
+        this.name = name;
+        this.age = age;
+      }
+      Person.prototype.eat = function (){
+        console.log("eat");
+      }
+      function Student(name,age,score){
+        //构造函数绑定
+        Person.apply(this,arguments);
+        this.score = score;
+      }
+      // 修改原型指向
+      Student.prototype = new Person();
+      Student.prototype.study = function (){
+        console.log("study");
+      }
+      var stu = new Student("zdq",20,90);
+      console.log(stu.name,stu.age,stu.score);
+      stu.eat();
+      stu.study();
+  </script>
+  <script>
+    // 拷贝继承
+    function Animal() {
+
+    }
+    Animal.prototype.name = "牛";
+    Animal.prototype.eat = function (){
+      console.log("吃草");
+    }
+    var obj = {};
+    for(var key in Animal.prototype){
+      obj[key] = Animal.prototype[key];
+    }
+    console.dir(obj);
+  </script>
+</body>
+</html>
