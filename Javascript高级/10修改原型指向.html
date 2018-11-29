@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function F1(age){
+      this.age = age;
+    }
+    function F2(age){
+      this.age = age;
+    }
+    F2.prototype = new F1(10)
+    function F3(age){
+      this.age = age;
+    }
+    F3.prototype = new F2(20);
+    var f3 = new F3(30);
+    console.log(f3.age);
+  </script>
+  <!-- 
+    函数的this 指向：
+    普通函数的this 指向： window
+    对象，方法中的this 指向：当前的实例对象
+    定时器方法中的this 指向： window
+    构造函数的this 指向：实例对象
+    原型对象方法中的this 指向：实例对象  
+   -->
+</body>
+</html>

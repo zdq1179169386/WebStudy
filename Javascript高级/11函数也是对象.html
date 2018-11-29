@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 所有的函数实际上都是 Function  构造函数创建出来的实例对象
+    var f1 = new Function("num1","num2","return num1 + num2");
+    console.log(f1(10,20));
+    console.dir(f1);
+    console.dir(Function);
+
+  // 函数也是一种数据类型
+    var arr = [
+      function (){
+        console.log("数组里可以装函数");
+      },
+      function (){
+        console.log("数组里可以装函数");
+      },
+      function (){
+        console.log("数组里可以装函数");
+      },
+      function (){
+        console.log("数组里可以装函数");
+      },
+    ];
+    arr.forEach(function (ele){
+        ele();
+    });
+  </script>
+</body>
+</html>
