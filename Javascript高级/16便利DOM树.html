@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        function forDOM(root){
+            var children = root.children;
+            for(var i = 0; i < children.length; i++){
+                var child = children[i];
+                console.log("节点的名字："+child.nodeName);
+                child.children && forDOM(child);
+            }
+        }
+        forDOM(document.documentElement);
+    </script>
+</body>
+</html>

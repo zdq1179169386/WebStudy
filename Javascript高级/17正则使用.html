@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+           'use strict';
+            // 正则可以放在//中间,也可使用字符串 "\\d{1,5}"，但要注意转义符
+            // 严格模式要在前面加上^，后面加上$
+            var regx = new RegExp("^\d(1,5)$");
+            var str = "幸运数字：100888";
+            var flag = regx.test(str);
+            console.log(flag);
+            // 字面量方式
+            // 不严格模式
+            var regx1 = /\d{5}/;
+            console.log(regx1.test(str));
+            console.log(/.?/.test("哈哈"));
+            // 获取日期中的日,g 表示全局都匹配
+            var date = "2017-11-11";
+            var array = date.match(/(\d{4})[-](\d{2})[-](\d{2})/g);
+            console.log(array);
+            // 获取正则中的第三个分组
+            console.log(RegExp.$3);
+
+            // 邮箱
+            var email = "1179369386@qq.com.cn";
+            email.match(/([0-9a-zA-Z_.-]+)[@]([a-zA-Z_-]+)(([.][a-zA-Z]+){1,2})/);
+            console.log(RegExp.$1);
+            console.log(RegExp.$2);
+            console.log(RegExp.$3);
+            console.log(RegExp.$4);
+            
+            // replace 替换， 全局替换必须加 g
+            var str1 = "朱德强帅，真的帅";
+            str1 =  str1.replace(/帅/g,"猥琐");
+            console.log(str1);
+
+            // i : 表示忽略大小写
+            var str2 = "HhppHh";
+            str2 = str2.replace(/h/i,"S");
+            // str2 = str2.replace(/h/gi,"S");
+            console.log(str2);
+            var str3 = "移动：10086，电信：10010，联通：10000";
+            var regex3 = new RegExp(/\d{5}/g);
+            // var arr3 = regex3.exec(str3);
+            var arr3 = str3.match(regex3);
+            for(var i = 0; i < arr3.length; i++){
+                console.log(arr3[i]);
+            }
+            // arr3.forEach(function (item,index){
+            //     console.log(item);
+            // });
+            // exec 方法和字符串的match 方法差不多,好像只返回 其中一个结果的数组，不太明白，得配合循环一起使用
+            var result;
+            while((result = regex3.exec(str3))!=null){
+                console.log(result[0]);
+            }
+        </script>
+</head>
+<body>
+   
+</body>
+</html>

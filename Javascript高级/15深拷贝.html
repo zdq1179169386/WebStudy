@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1 = {
+            name : "zdq",
+            cars : ["宝马","奔驰"],
+            dog : {
+                name : "大黄",
+                age : 5,
+                color : "黄毛"
+            }
+        };
+
+        var obj2 = {};
+        function extend(a,b){
+            for(var key in a){
+                var value = a[key];
+                if(value instanceof Array){
+                    // 数组
+                    b[key] = [];
+                    extend(value,b[key]);
+                }else if(value instanceof Object){
+                    // 对象
+                    b[key] = {};
+                    extend(value,b[key]);
+                }else {
+                    b[key] = value;
+                }
+            }
+        }
+        extend(obj1,obj2);
+        console.dir(obj1);
+        console.dir(obj2);
+    </script>
+</body>
+</html>
