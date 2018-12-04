@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 闭包会捕获外面的变量
+    function f1() {
+      var num = 10;
+      return function () {
+        num++;
+        return num;
+      }
+    }
+    var ff = f1();
+    console.log(ff());
+    console.log(ff());
+    console.log(ff());
+
+    var name = "The Window";
+    var object = {
+      name: "My Object",
+      getNameFunc: function () {
+        return function () {
+          console.log(this);
+          return this.name;
+        };
+      }
+    };
+    var fa = object.getNameFunc();
+    console.log(fa());
+    alert(object.getNameFunc()());
+    // var name = "The Window";
+    // var object = {
+    //   name: "My Object",
+    //   getNameFunc: function () {
+    //     var that = this;
+    //     return function () {
+    //       return that.name;
+    //     };
+    //   }
+    // };
+    // alert(object.getNameFunc()());
+  </script>
+</body>
+
+</html>
