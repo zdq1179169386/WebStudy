@@ -25,4 +25,22 @@ class App extends Component {
   }
 }
 
+class People extends Component {
+  constructor(name){
+    this.name = name;
+  }
+  sayHello() {
+    console.log("hello" + this.name);
+  }
+}
+
+ class Student extends People {
+    constructor(name){
+      super(name);
+    }
+ }
+
+ var s1 = new Student('zdq');
+ s1.sayHello();
+
 export default App;
