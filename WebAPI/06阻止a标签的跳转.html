@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 在a 标签的onclick 方法返回 return false; 就能阻止 a 标签的跳转 -->
+    <a href="http://www.baidu.com" onclick="alert('哈哈'); return false">百度</a>
+     <br>
+     <script>
+         function f1(){
+             alert('111');
+             return false;
+         }
+     </script>
+     <a href="http://www.baidu.com" onclick="return f1()">百度</a>
+     <br>
+     <a href="http://www.baidu.com" id="ad">百度</a>
+     <script>
+         document.getElementById('ad').onclick = function(){
+             alert('22');
+             return false;
+         }
+     </script>
+    <br>
+    <input type="button" value="点击" id="btn">
+    <input type="text" placeholder="输入" id="text">
+    <script>
+        document.getElementById('btn').onclick = function() {
+            // 修改输入框的 disabled 属性
+            document.getElementById('text').disabled = true;
+        }
+    </script>
+</body>
+</html>
