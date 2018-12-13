@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    li {
+      width: 200px;
+      height: 100px;
+      background-color: green;
+      float: left;
+      list-style: none;
+      margin-left: 10px;
+      border: 10px solid green;
+      /* 用下面的方式改变盒子模型也是可以的 */
+      /* box-sizing: border-box; */
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <script>
+   var list =  document.getElementsByTagName('li');
+   for(var i = 0; i < list.length; i++){
+     list[i].onmouseover = function (){
+       this.style.border = '10px solid red';
+     }
+     list[i].onmouseout = function (){
+      this.style.border = '10px solid green';
+     }
+   }
+  </script>
+</body>
+</html>
