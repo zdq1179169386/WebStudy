@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 节点 ： 标签，文本，属性 -->
+    <!-- 元素 ： 标签是一个元素，文本和属性不是 -->
+    <div id="dv">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li id="ul-li">3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <div>1234</div>
+    <script>
+        var dvObj = document.getElementById("dv");
+        // 父节点
+        console.log(dvObj.parentNode);
+        // 父元素
+        console.log(dvObj.parentElement);
+        // 子节点
+        console.log(dvObj.childNodes);
+        // 子元素
+        console.log(dvObj.children);
+
+        var liObj = document.getElementById('ul-li');
+        // 前一个节点
+        console.log(liObj.previousSibling);
+        // 后一个节点
+        console.log(liObj.nextSibling);
+        // 前一个元素
+        console.log(liObj.previousElementSibling);
+        // 后一个元素
+        console.log(liObj.nextElementSibling);
+    </script>
+</body>
+</html>
