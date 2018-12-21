@@ -6,23 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        
         li {
+            list-style:  none;
             width: 100px;
             height: 30px;
-            border: 1px solid pink;
             /* 不换行 */
             white-space: nowrap;
             overflow: hidden;
             /* 省略号显示，必须加上 overflow ： hidden */
             text-overflow: ellipsis;
+            border: 1px solid pink;
         }
+        li:nth-child(even){
+            border-top: 0;
+        }
+        li:nth-child(odd){
+            border-top: 0;
+        }
+        li:first-child{
+            border-top: 1px solid pink;
+        }
+
+        /* li:nth-child(2n){
+            border-bottom: 1px solid pink;
+            border-right: 1px solid pink;
+        } */
     </style>
 </head>
 <body>
-    <li>我是文字，我是文字</li>
-    <li>我是文字，我是文字</li>
-    <li>我是文字，我是文字</li>
-    <li>我是文字，我是文字</li>
-    <li>我是文字，我是文字</li>
+    <ul>
+            <li>我是文字，我是文字</li>
+            <li>我是文字，我是文字</li>
+            <li>我是文字，我是文字</li>
+            <li>我是文字，我是文字</li>
+            <li>我是文字，我是文字</li>
+    </ul>
 </body>
 </html>
