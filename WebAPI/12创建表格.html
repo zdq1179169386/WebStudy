@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 200px;
+            height: 400px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="点击" id="btn">
+    <div id="dv">
+
+    </div>
+    <script>
+        var arr = [
+            {name : '百度', href : 'http://www.baidu.com'},
+            {name : 'google', href : 'http://www.baidu.com'},
+            {name : '腾讯', href : 'http://www.baidu.com'},
+            {name : '阿里', href : 'http://www.baidu.com'},
+            {name : '网易', href : 'http://www.baidu.com'},
+
+        ];
+        // appendChild : 将标签拼接到另一个标签内部
+        document.getElementById('btn').onclick = function (){
+            var tableObj = document.createElement('table');
+            tableObj.border = '1';
+            tableObj.cellPadding = '0';
+            tableObj.cellSpacing = '0';
+            document.getElementById('dv').appendChild(tableObj);
+            for(var i = 0; i < arr.length; i++){
+                var dt = arr[i];
+                var trObj = document.createElement('tr');
+                tableObj.appendChild(trObj);
+                var tdObj = document.createElement('td');
+                tdObj.innerText = dt.name;
+                trObj.appendChild(tdObj);
+                var tdObj1 = document.createElement('td');
+                tdObj1.innerHTML = "<a href= "+dt.href+">"+dt.name+"</a>";
+                trObj.appendChild(tdObj1);
+            }
+        }
+    </script>
+</body>
+</html>
