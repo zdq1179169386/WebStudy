@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            #dv {
+                width: 300px;
+                height: 400px;
+                border: 1px solid black;
+            }
+        </style>
+</head>
+<body>
+        <input type="button" value="点击" id="btn">
+        <input type="button" value="删除" id="del">
+        <input type="button" value="删除全部" id="delall">
+
+        <div id="dv">    </div>
+        <script>
+            var i = 0;
+            var dv = document.getElementById('dv');
+            document.getElementById('btn').onclick = function (){
+                i++;
+                var btn = document.createElement('input');
+                btn.type = 'button';
+                btn.value = '按钮'+i;
+                dv.insertBefore(btn,dv.firstElementChild);
+            }
+            document.getElementById('del').onclick = function (){
+                dv.removeChild(dv.firstElementChild);
+            }
+            document.getElementById('delall').onclick = function (){
+                while(dv.firstElementChild){
+                    dv.removeChild(dv.firstElementChild);
+                }
+            }
+        </script>
+            
+</body>
+</html>
