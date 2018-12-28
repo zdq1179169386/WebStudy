@@ -8,7 +8,18 @@
 </head>
 <body>
   <script>
-    
+    // onload 页面加载完
+    window.onload = function (){
+      alert('11');
+    };
+    // onunload 页面关闭
+    window.onunload = function (){
+      alert('22');
+    };
+    // onbeforeunload 页面关闭之前
+    window.onbeforeunload = function (){
+      alert('33');
+    };
   </script>
 </body>
 </html>
