@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="点击" id="btn">
+  <script>
+    // 绑定事件
+    function f1(){
+      console.log(this);
+    }
+    document.getElementById('btn').addEventListener('click',f1,false);
+    // attachEvent : IE 特有的
+    function f2(){
+      console.log(this);
+    }
+    document.getElementById('btn').attachEvent('onclick',f2);
+    document.getElementById('btn').onclick = function (){
+
+    }
+    // 解绑
+    // onclick 的解绑
+    document.getElementById('btn').onclick = null;
+    // addEventListener 的解绑，必须传命名函数
+    document.getElementById('btn').removeEventListener('click',f1,false);
+    // attachEvent 的解绑，传命名函数
+    document.getElementById('btn').detachEvent('onclick',f2);
+  </script>
+  <script>
+    // 兼容代码
+    function addEvent(element,type,fn){
+      if(element.addEventListener){
+        element.addEventListener(type,fn,false);
+      }else if (element.addEvent){
+        element.addEvent('on'+type,fn);
+      }else{
+        element['on'+type] = fn;
+      }
+    }
+    // 解绑兼容
+    function removeEvent(element,type,fn){
+      if(element.removeEventListener){
+        element.removeEventListener(type,fn,false);
+      }else if (element.detachEvent){
+        element.detachEvent('on'+type,fn);
+      }else{
+        element['on'+type] = null;
+      }
+    }
+  </script>
+</body>
+</html>

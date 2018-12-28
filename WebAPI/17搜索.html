@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #searchT{
+      width: 300px;
+      
+    }
+  </style>
+  <script>
+      function my$(idStr){
+        return document.getElementById(idStr);
+      }
+    </script>
+</head>
+<body>
+  <input type="text" id="searchT">
+  <script>
+    var keyWords = ['小明','小红','张三','李四','李明'];
+    my$('searchT').onkeyup = function (){
+      if(my$('dv')){
+          document.body.removeChild(my$('dv'));
+        }
+      var value = this.value;
+      var tempArr = [];
+      for(var i = 0; i < keyWords.length; i++){
+        if(0 <= keyWords[i].indexOf(value)){
+          tempArr.push(keyWords[i]);
+        }
+      }
+      if(this.value.length == 0 || tempArr.length == 0){
+        if(my$('dv')){
+          document.body.removeChild(my$('dv'));
+        }
+        return;
+      }
+      var dvObj = document.createElement('div');
+      document.body.appendChild(dvObj);
+      dvObj.id = 'dv';
+      dvObj.style.width = '300px';
+      // dvObj.style.height = '100px';
+      dvObj.style.border = '1px solid green';
+      for(var i = 0;i < tempArr.length; i++){
+        var pObj = document.createElement('p');
+        dvObj.appendChild(pObj);
+        pObj.innerText = tempArr[i];
+        pObj.style.margin = 0;
+        pObj.style.padding = 0;
+        pObj.style.cursor = 'pointer';
+        pObj.style.marginTop = '5px';
+        pObj.style.marginLeft = '5px';
+        pObj.onmouseover = function (){
+          this.style.backgroundColor = 'pink';
+        }
+        pObj.onmouseout = function (){
+          this.style.backgroundColor = '';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
