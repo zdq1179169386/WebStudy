@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #dv {
+      width: 200px;
+      height: 100px;
+      background-color: green;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="400" id="btn1">
+  <input type="button" value="800" id="btn2">
+  <div id="dv"></div>
+  <script>
+    var timerId;
+    function animation(element,target){
+      clearInterval(timerId);
+      timerId  = setInterval(function (){
+        var current = element.offsetLeft;
+        var step = 10;
+        step = current < target? step : -step;
+        current += step;
+        // 绝对值
+        if(Math.abs(target - current)>Math.abs(step)){
+          element.style.left = current + 'px';
+        }else {
+          element.style.left = target+'px';
+          clearInterval(timerId);
+        }
+      },200);
+    };
+    var dvObj = document.getElementById('dv');
+    document.getElementById('btn1').onclick = function (){
+      animation(dvObj,400);
+    };
+    document.getElementById('btn2').onclick = function (){
+      animation(dvObj,800);
+    };
+
+  </script>
+</body>
+</html>
