@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #dv {
+      width: 200px;
+      height: 100px;
+      background-color: green;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="400" id="btn1">
+  <input type="button" value="800" id="btn2">
+  <div id="dv"></div>
+  <script>
+    function getStyle(element,attr){
+      return window.getComputedStyle ? window.getComputedStyle(element,null)[attr] : element.currentStyle[attr];
+    }
+    function animation(element,attr,target){
+      clearInterval(element.timerId);
+      timerId  = setInterval(function (){
+        var current = parseInt(getStyle(element,attr));
+        var step = (target-current)/10;
+        // ceil 向上取整，floor 向下取整
+        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        current += step;
+        element.style[attr] = current + 'px';
+        // 绝对值
+        if(current == target){
+          clearInterval(timerId);
+        }
+      },20);
+    };
+    
+    var dvObj = document.getElementById('dv');
+    document.getElementById('btn1').onclick = function (){
+      animation(dvObj,'top',400);
+    };
+    document.getElementById('btn2').onclick = function (){
+      animation(dvObj,'height',400);
+    };
+
+  </script>
+</body>
+</html>

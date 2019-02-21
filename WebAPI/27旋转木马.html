@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    blockquote,
+    body,
+    button,
+    dd,
+    dl,
+    dt,
+    fieldset,
+    form,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    input,
+    legend,
+    li,
+    ol,
+    p,
+    pre,
+    td,
+    textarea,
+    th,
+    ul {
+      margin: 0;
+      padding: 0
+    }
+
+    body,
+    button,
+    input,
+    select,
+    textarea {
+      font: 12px/1.5 "Microsoft YaHei", "微软雅黑", SimSun, "宋体", sans-serif;
+      color: #666;
+    }
+
+    ol,
+    ul {
+      list-style: none
+    }
+
+    a {
+      text-decoration: none
+    }
+
+    fieldset,
+    img {
+      border: 0;
+      vertical-align: top;
+    }
+
+    a,
+    input,
+    button,
+    select,
+    textarea {
+      outline: none;
+    }
+
+    a,
+    button {
+      cursor: pointer;
+    }
+    .wrap {
+      width: 1200px;
+      margin: 100px auto;
+    }
+
+    .slide {
+      height: 500px;
+      position: relative;
+    }
+
+    .slide li {
+      position: absolute;
+      left: 200px;
+      top: 0;
+    }
+
+    .slide li img {
+      width: 100%;
+    }
+
+    .arrow {
+      opacity: 0;
+    }
+
+    .pre,
+    .next {
+      width: 76px;
+      height: 112px;
+      position: absolute;
+      top: 50%;
+      margin-top: -56px;
+      background: url(images1/prev.png) no-repeat;
+      z-index: 99;
+    }
+
+    .next {
+      right: 0;
+      background-image: url(images1/next.png);
+    }
+  </style>
+  <script>
+    function my$(idStr) {
+      return document.getElementById(idStr);
+    }
+  </script>
+  <script>
+    function getAttrValue(element, attr) {
+      return element.currentStyle?element.currentStyle[attr] : window.getComputedStyle(element, null)[attr]||0;
+    }
+
+    function animate(element, json, fn) {
+      clearInterval(element.timerId);
+      element.timerId = setInterval(function () {
+        var flag = true;
+        for (var attr in json) {
+          if (attr=='opacity') {
+            var current = getAttrValue(element, attr) * 100;
+            var target = json[attr] * 100;
+            var step = (target - current) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            current = current + step;
+            element.style[attr] = current / 100;
+          } else if (attr=='zIndex') {
+            element.style[attr] = json[attr];
+          } else {
+            //获取当前的位置----getAttrValue(element,attr)获取的是字符串类型
+            var current= parseInt(getAttrValue(element,attr))||0;
+                //每次移动多少步
+                var target=json[attr];//直接赋值给一个变量,后面的代码都不用改
+                var step=(target-current)/10;//(目标-当前)/10
+                step=step>0?Math.ceil(step):Math.floor(step);
+                current=current+step;
+                element.style[attr]=current+"px";
+          }
+          if (current != target) {
+            flag = false;
+          }
+        }
+        if (flag) {
+          clearInterval(element.timerId);
+          if (fn) {
+            fn();
+          }
+        }
+      }, 10);
+    }
+  </script>
+  <script>
+    var config = [{
+        width: 400,
+        top: 20,
+        left: 50,
+        opacity: 0.2,
+        zIndex: 2
+      }, //0
+      {
+        width: 600,
+        top: 70,
+        left: 0,
+        opacity: 0.8,
+        zIndex: 3
+      }, //1
+      {
+        width: 800,
+        top: 100,
+        left: 200,
+        opacity: 1,
+        zIndex: 4
+      }, //2
+      {
+        width: 600,
+        top: 70,
+        left: 600,
+        opacity: 0.8,
+        zIndex: 3
+      }, //3
+      {
+        width: 400,
+        top: 20,
+        left: 750,
+        opacity: 0.2,
+        zIndex: 2
+      } //4
+    ];
+    window.onload = function () {
+      var flag = true;
+      var list = my$('slide').getElementsByTagName('li');
+      function assign() {
+        for (var i = 0; i < list.length; i++) {
+          animate(list[i], config[i], function () {
+            flag = true;
+          });
+        }
+      }
+      assign();
+      my$('arrRight').onclick = function () {
+        if (flag) {
+          flag = false;
+          config.push(config.shift());
+          assign();
+        }
+      }
+      my$('arrLeft').onclick = function () {
+        if (flag) {
+          flag = false;
+          config.unshift(config.pop());
+          assign();
+        }
+      }
+      my$('slide').onmouseover = function () {
+        animate(my$('arrow'), {
+          'opacity': 1
+        });
+      }
+      my$('slide').onmouseout = function () {
+        animate(my$('arrow'), {
+          'opacity': 0
+        });
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+      <ul>
+        <li><a href="#"><img src="images1/slidepic1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images1/slidepic2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images1/slidepic3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images1/slidepic4.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images1/slidepic5.jpg" alt=""></a></li>
+      </ul>
+      <div class="arrow" id="arrow">
+        <a href="javascript:;" class="pre" id="arrLeft"></a>
+        <a href="javascript:;" class="next" id="arrRight"></a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
