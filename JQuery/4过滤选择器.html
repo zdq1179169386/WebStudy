@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./jquery-1.12.4.js"></script>
+</head>
+<body>
+  <ul>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+    <li>我是第3个li</li>
+    <li>我是第4个li</li>
+    <li>我是第5个li</li>
+    <li>我是第6个li</li>
+    <li>我是第7个li</li>
+    <li>我是第8个li</li>
+    <li>我是第9个li</li>
+    <li>我是第10个li</li>
+  </ul>
+  <script>
+    $(function(){
+      // 偶数
+      $("li:even").css('backgroundColor','red');
+      // 奇数
+      $("li:odd").css('backgroundColor','pink');
+      // 第一个，last
+      $('li:first').css('backgroundColor','blue');
+      // 第n个，从0开始
+      $('li:eq(5)').css('font-size','32px');
+      // 小于第n个
+      $('li:lt(5)').css('font-size','16px');
+      // 大于
+      $('li:gt(5)').css('font-size','20px');
+    
+    })
+  </script>
+</body>
+</html>
