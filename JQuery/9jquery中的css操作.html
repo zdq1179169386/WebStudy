@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ul>li{我是第$个}*5 -->
+    <ul>
+        <li>我是第1个</li>
+        <li>我是第2个</li>
+        <li>我是第3个</li>
+        <li>我是第4个</li>
+        <li>我是第5个</li>
+    </ul>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+      $(function(){
+        //   多个样式就传对象
+         $('li').css({
+             backgroundColor : 'pink',
+             fontSize : '20px'
+         })
+        //  单个样式
+         $('li').eq(1).css('fontSize','30px');
+        //  隐式迭代
+        // 设置的
+        //  输出样式,之后输出第一个元素的值
+         console.log($('li').css('fontSize'));
+         
+      })
+    </script>
+</body>
+</html>
