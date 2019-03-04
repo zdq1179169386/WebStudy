@@ -87,11 +87,14 @@
   </div>
   <script>
     $(function () {
-      $('#wrap>ul>li').mouseover(function () {
-        $(this).children('ul').show();
+      $('#wrap>ul>li').mouseenter(function () {
+//         clearQueue:如果设置成true，则清空队列。可以立即结束动画。
+// jumpToEnd:如果设置成true，则完成队列。可以立即完成动画。
+        // 先停止当前正在执行的动画，再执行动画
+        $(this).children('ul').stop().slideDown();
       })
-      $('#wrap>ul>li').mouseout(function () {
-        $(this).children('ul').hide();
+      $('#wrap>ul>li').mouseleave(function () {
+        $(this).children('ul').stop().slideUp();
       })
     })
   </script>

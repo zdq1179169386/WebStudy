@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 3000px;
+      height: 3000px;
+      background-color: red;
+      padding: 10px;
+      border: 10px solid #ccc;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      console.log($('div').width());
+      console.log($('div').height());
+      console.log($('div').innerWidth()); //padding + width
+      console.log($('div').outerWidth()); //padding + border + width
+      console.log($('div').outerWidth(true)); //padding + border + width + margin
+
+      //需要获取页面可视区的宽度和高度
+      $(window).resize(function () {
+        console.log($(window).width());
+        console.log($(window).height());
+      });
+      $(window).scroll(function (){
+        // 距离顶部的偏移量
+        console.log($(window).scrollTop());
+        // 距离左边的偏移量
+        console.log($(window).scrollLeft());
+      })
+    })
+  </script>
+</body>
+
+</html>

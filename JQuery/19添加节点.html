@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div>
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function(){
+      var $p = '<p>我是p标签</p>';
+      var $p2 = '<p>我是第二个p标签</p>';
+      // p 添加到div 中
+      // $('div').append($p);
+      // p2 追加到div 中
+      // $($p2).appendTo($('div'));
+      // 拼接到前面
+      // $('div').prepend($p);
+      // 追加到前面
+      // $($p2).prependTo($('div'));
+      // 添加到前面作为兄弟标签
+      $('div').before($p);
+      // 添加到后面，作为兄弟标签
+      $('div').after($p2);
+    })
+  </script>
+</body>
+</html>

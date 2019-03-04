@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <!-- 1） innerHTML设置或获取标签所包含的HTML+文本信息(从标签起始位置到终止位置全部内容，包括HTML标签，但不包括自身) -->
+    <!-- 2 innerText设置或获取标签所包含的文本信息（从标签起始位置到终止位置的内容，去除HTML标签，但不包括自身） -->
+
+    <div><h3>我是标题</h3></div>
+    
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+      $(function(){
+        // 获取
+        console.log($('div').html());
+        console.log($('div').text());
+        // 设置
+        // $('div').html('<p>我是p标签</p>');
+        $('div').text('<p>我是p标签</p>');
+      })
+    </script>
+</body>
+</html>
