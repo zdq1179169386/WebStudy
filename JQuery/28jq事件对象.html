@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a href="http://www.baidu.com" id="link">百度</a>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function(){
+      // e 是jq 事件对象
+      $('#link').on('click',function(e){
+        alert('111');  
+        console.log(e);
+        // 阻止浏览器默认行为
+        // e.preventDefault();
+        // 阻止事件冒泡
+        // e.stopPropagation();
+        // 既能阻止浏览器默认行为，也能阻止事件冒泡
+        return false;
+      });
+      $('body').on('click',function(){
+        console.log('222');
+      })
+    })
+  </script>
+</body>
+</html>

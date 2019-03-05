@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    #wrap {
+      width: 410px;
+      margin: 100px auto;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+    th,td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+    th {
+      background-color: #09c;
+      font: bold 16px "Î¢ÈíÑÅºÚ";
+      color: #fff;
+    }
+    td {
+      font: 14px "Î¢ÈíÑÅºÚ";
+    }
+    td a.get {
+      text-decoration: none;
+    }
+
+    #btn,#btnAdd {
+      width: 110px;
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <input type="button" value="清空内容" id="btn">
+    <input type="button" value="添加" id="btnAdd">
+    <table>
+      <thead>
+        <tr>
+          <th>课程名称</th>
+          <th>所属学院</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="j_tb">
+        <tr>
+          <td>js</td>
+          <td>前端</td>
+          <td><a href="javascript:void(0)" class="get">delete</a></td>
+        </tr>
+        <tr>
+          <td>css</td>
+          <td>前端</td>
+          <td><a href="javascript:void(0)" class="get">delete</a></td>
+        </tr>
+        <tr>
+          <td>html</td>
+          <td>前端</td>
+          <td><a href="javascript:void(0)" class="get">delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function(){
+      $('#btn').click(function(){
+        // 清楚内部元素
+        $('#j_tb').empty();
+      });
+      $('#j_tb').on('click','.get',function(){
+        // 删除自己
+        $(this).parent().parent().remove();
+      })
+      $('#btnAdd').click(function(){
+          $('<tr><td>新建的</td><td>前端</td><td><a href="javascript:void(0)" class="get">delete</a></td></tr>').appendTo('#j_tb');
+      })
+    })
+  </script>
+</body>
+
+</html>

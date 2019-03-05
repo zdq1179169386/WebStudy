@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p>我是一个p</p>
+  <p>我是一个p</p>
+  <p>我是一个p</p>
+  <input type="button" value="点击">
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function(){
+      $('p').click(function(){
+        console.log('111');
+        
+      })
+      // 接触事件绑定
+      // $('p').off('click');
+      $('input').click(function(){
+        // 触发点击事件
+        // $('p').eq(0).click();
+        $('p').eq(0).trigger('click');
+      })
+    })
+  </script>
+</body>
+</html>

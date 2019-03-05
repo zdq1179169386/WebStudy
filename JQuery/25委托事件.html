@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="button" value="增加">
+    <span>span</span>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function(){
+      // $('p').click(function(){
+      //   console.log('222');
+      // });
+      $('input').click(function(){
+        $('<p>我是新增的p</p>').appendTo($('div'));
+      })
+      // // 委托事件，实际上是给子元素注册的，div 委托给p 执行
+      // $('div').delegate('p','click',function(){
+      //   console.log('新增的p');
+      // })
+      // $('div').delegate('span','click',function(){
+      //   console.log('点击span');  
+      // })
+      // 简单事件
+      $('p').on('click', function(){
+        console.log('on事件');
+      })
+      // 委托事件,类型，选择器，回调函数
+      $('div').on('click','p',function(){
+        console.log('委托事件');
+      })
+
+      // 事件的执行顺序
+      // 先执行自己的委托事件，然后再执行自己的点击事件
+    })
+  </script>
+</body>
+</html>
