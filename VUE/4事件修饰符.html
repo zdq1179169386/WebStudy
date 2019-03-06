@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        #app {
+            background-color: pink;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- stop 阻止事件冒泡 -->
+    <!-- <div id="app" @click='innerClick'>
+        <input type="button" value="点击" @click.stop='btnClick'>
+    </div> -->
+
+    <!-- prevent 阻止浏览器默认行为 -->
+    <!-- once 只执行一次 -->
+    <!-- <div id="app" @click='innerClick'>
+        <a href="http://www.baidu.com" @click.prevent.once='aclick'>百度</a>
+    </div> -->
+
+    <!-- self 只执行点击自己的事件 -->
+    <!-- <div id="app" @click.self='innerClick'>
+        <input type="button" value="点击" @click='btnClick'>
+    </div> -->
+
+    <!-- capture 会先捕获自己的那层事件，从而改变事件的调用 -->
+    <div id="app" @click.capture='innerClick'>
+        <input type="button" value="点击" @click.stop='btnClick'>
+    </div>
+
+    <!-- stop和self 的区别，stop 会阻止所有父级视图的事件，self 只会阻止自己 -->
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                btnClick() {
+                    console.log('btn click 事件');
+                },
+                innerClick() {
+                    console.log('inner click 事件');
+                },
+                aclick() {
+                    console.log('a click 事件');
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
