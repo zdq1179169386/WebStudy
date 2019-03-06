@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue.js"></script>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- v-cloak 解决插值表达式闪烁的问题-->
+    <!--  v-cloak 可以拼接字符串 -->
+    <p v-cloak>+++++{{msg}}1111</p>
+    <!-- v-text 默认没有闪烁问题 -->
+    <!-- v-text 会覆盖原本的内容 -->
+    <h3 v-text='msg'>====</h3>
+
+    <!-- v-html : 当做标签渲染,也会覆盖原本的内存  -->
+    <div v-html='msg2'>{{msg2}}</div>
+    
+    <!-- v-bind 绑定属性,也可以加 字符串拼接 -->
+    <!-- <input type="button" value="按钮" v-bind:title="mytitle + '222'">-->
+    <!-- 简写 -->
+    <input type="button" value="按钮" :title="mytitle + '222'" v-on:click='show'>
+    <!-- v-on 绑定事件 -->
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      //  data 数据集合
+      data : {
+        msg : '111',
+        msg2 : '<h1>我是一个h1标签</h1>',
+        mytitle: '这是一个按钮',
+      },
+      // methods ：事件集合是个对象
+      methods: {
+        show:function(){
+          alert('hello')
+        },
+
+      },
+    })
+  </script>
+</body>
+</html>
