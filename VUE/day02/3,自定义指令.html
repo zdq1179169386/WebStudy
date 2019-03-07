@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-focus v-color="'pink'" >
+        <p v-font-weight='900'>字体</p>
+    </div>
+    <script>
+        // 自定义全局指令
+        Vue.directive('focus', {
+            bind: function(el){
+                // 每当指令绑定到元素上的时候，会立即执行这个bind 方法，只执行一次
+                // el : 原生的js 对象，即 DOM 对象
+                console.log('bind');
+                
+            },
+            inserted:function(el){
+                // 插入DOM中的时候，会执行inserted 函数，只执行一次
+                el.focus();
+                console.log('inserted');
+
+            },
+            updated(el) {
+                // 更新的时候，会执行一次，会触发多次
+                console.log('updated');
+            },
+        })
+        Vue.directive('color',{
+            bind(el,binding){
+                el.style.color = binding.value;
+                // 指令名称
+                console.log(binding.name);
+                // 指令参数
+                console.log(binding.value);
+                // 指令参数的表达式
+                console.log(binding.expression);
+             }
+        })
+        var vm = new Vue({
+            el : '#app',
+            data : {
+
+            },
+            // 自定义私有指令
+            directives:{
+                'font-weight': {
+                    bind: function(el,binding){
+                        el.style.fontWeight = binding.value;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
