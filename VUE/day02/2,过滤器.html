@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 同时使用多个过滤器 -->
+    <p>{{ msg | msgFilter('疯狂') | msgFilter2}}</p>
+  </div>
+  <script>
+    // 过滤器的定义和使用
+    Vue.filter('msgFilter', function(msg,arg1){
+      return msg.replace(/单纯/g, arg1);
+    })
+
+    Vue.filter('msgFilter2', function(msg){
+      return msg + '===';
+    })
+
+    var vm = new Vue({
+      el : '#app',
+      data:{
+        msg :'单纯的我，曾单纯的认为，我是这个世界上最单纯的男人',
+      }
+    })
+  </script>
+</body>
+</html>

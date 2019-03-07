@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./lib/bootstrap.css">
+  <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">添加品牌</h3>
+      </div>
+      <div class="panel-body form-inline">
+        <label>
+          Id:
+          <input type="text" class="form-control" v-model='id'>
+        </label>
+        <label>
+          Name:
+          <!-- @keyup.enter 按键修饰符 -->
+          <input type="text" class="form-control" v-model='name' @keyup.up='add'>
+        </label>
+        <label>
+          <!-- add() 括号里可以传参 -->
+          <input type="button" value="添加" class="btn btn-primary" @click='add()'>
+        </label>
+        <label>
+          搜索:
+          <input type="text" class="form-control" v-model='keywords'>
+        </label>
+      </div>
+    </div>
+
+    <table class="table table-bordered table-hover table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Ctime</th>
+          <th>Operation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for='item in search(keywords)' :key='item.id'>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.time | dateFilter() }}</td>
+          <td>
+            <a href="#" @click.prevent='del(item.id)'>删除</a>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div id="app2">
+    <p>{{ msg | dateFilter }}</p>
+  </div>
+  <script>
+    // 全局过滤器,所有的vm 都可以用
+    // 形参不传，默认是undefined
+    Vue.filter('dateFilter', function (dateStr, pattern = '') {
+      var dt = new Date(dateStr);
+      var y = dt.getFullYear();
+      var m = dt.getMonth() + 1;
+      var d = dt.getDate();
+
+      if (pattern.toLowerCase() == 'yyyy-mm-dd') {
+        // js 模板字符串
+        return `${y}-${m}-${d}`;
+      } else {
+        var hh = dt.getHours();
+        var mm = dt.getMinutes();
+        var ss = dt.getSeconds();
+        return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+      }
+
+    })
+
+    // 自定义键盘修饰符
+    Vue.config.keyCodes.up = 38;
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list: [{
+            id: 1,
+            name: '奔驰',
+            time: new Date()
+          },
+          {
+            id: 2,
+            name: '宝马',
+            time: new Date()
+          }
+        ],
+        id: '',
+        name: '',
+        keywords: ''
+      },
+      methods: {
+        add() {
+          var car = {
+            id: this.id,
+            name: this.name,
+            time:  new Date(),
+          };
+          this.list.push(car);
+          this.id = this.name = '';
+        },
+        del(id) {
+          // some() 方法用于检测数组中的元素是否满足指定条件
+          // this.list.some( (item,i)=>{
+          //   if(item.id == id){
+          //     this.list.splice(i,1);
+          //     return true;
+          //   }
+          // })
+
+          // 找符合条件的索引
+          var i = this.list.findIndex(item => {
+            if (item.id == id)
+              return true;
+          })
+          this.list.splice(i, 1);
+        },
+        search(keywords) {
+          // 第一种写法
+          var newList = [];
+          this.list.forEach(item => {
+            //  indexOf ： 字符串是否包含， 不包含返回-1
+            console.log(item.name.indexOf(keywords));
+
+            if (item.name.indexOf(keywords) != -1) {
+              newList.push(item);
+            }
+          })
+          return newList;
+
+          // 第二种写法
+          //  return this.list.filter(item => {
+          //   //  includes 字符串是否包含其他字符串
+          //     if(item.name.includes(keywords)){
+          //       return item;
+          //     }
+          //   });
+        }
+      },
+
+    })
+
+    var vm2 = new Vue({
+      el: '#app2',
+      data: {
+        msg: new Date(),
+      },
+      // 私有过滤器, 过滤器的调用遵循就近原则，优先调用私有过滤器
+      filters: {
+        dateFilter : function (dateStr, pattern = '') {
+          var dt = new Date(dateStr);
+          var y = dt.getFullYear();
+          var m = (dt.getMonth() + 1).toString().padStart(2,'0');
+          var d = dt.getDate().toString().padStart(2,'0');
+
+          if (pattern.toLowerCase() == 'yyyy-mm-dd') {
+            // js 模板字符串
+            return `${y}-${m}-${d}`;
+          } else {
+            // padStart 用** 在前面填充
+            var hh = dt.getHours().toString().padStart(2,'0');
+            var mm = dt.getMinutes().toString().padStart(2,'0');
+            var ss = dt.getSeconds().toString().padStart(2,'0');
+            return `${y}-${m}-${d} ${hh}:${mm}:${ss}` + '===';
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

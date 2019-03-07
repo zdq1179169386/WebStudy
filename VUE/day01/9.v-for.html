@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+  <!-- v-for 遍历对象数组 -->
+  <!-- <div id="app">
+    <p v-for='(obj,i) in list'>{{obj.id}} +++ {{obj.name}} +++ 索引: {{i}}</p>
+  </div> -->
+
+
+  <!-- v-for 遍历对象 -->
+  <!-- <div id="app">
+    <p v-for='(value,idx,i) in user'>{{value}} +++ {{idx}} +++ 索引: {{i}}</p>
+  </div> -->
+
+  <!-- v-for 迭代数字 -->
+  <div id="app">
+    <p v-for='count in 10'>这是第{{count}}个数字</p>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list: [{
+            id: '1',
+            name: 'zdq1'
+          },
+          {
+            id: '2',
+            name: 'zdq2'
+          },
+          {
+            id: '3',
+            name: 'zdq3'
+          },
+          {
+            id: '4',
+            name: 'zdq4'
+          }
+        ],
+        user: {
+          name: 'zdq',
+          gender: '男',
+          age: 20
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
