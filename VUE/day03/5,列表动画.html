@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue.js"></script>
+  <style>
+    li{
+      border: 1px dashed #ccc;
+      margin: 10px;
+      line-height: 30px;
+      padding-left: 10px;
+    }
+     li:hover {
+      background-color: hotpink;
+      transition: all 1s ease;
+    };
+    .table-enter,
+    .table-leave-to {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+    .table-enter-active,
+    .table-leave-active {
+      transition: all 1s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <label>
+        Id:
+        <input type="text" v-model='id'>
+      </label>
+      <label>
+        Name:
+        <input type="text" v-model='name'>
+      </label>
+      <input type="button" value="添加" @click='add'>
+    </div>
+    <ul>
+      <!-- 列表动画必须放在 transition-group 中， -->
+      <transition-group name='table'>
+        <li v-for='item in list' :key='item.id'>
+          {{ item.id }} --- {{ item.name }}
+        </li>
+      </transition-group>
+    </ul>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        id: '',
+        name: '',
+        list: [{
+            id: 1,
+            name: 'zdq1'
+          },
+          {
+            id: 2,
+            name: 'zdq2'
+          },
+          {
+            id: 3,
+            name: 'zdq3'
+          },
+        ]
+      },
+      methods: {
+        add() {
+          this.list.push({
+            id: this.id,
+            name: this.name
+          });
+          this.id = this.name = '';
+        },
+      },
+    })
+  </script>
+</body>
+
+</html>

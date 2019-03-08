@@ -33,7 +33,7 @@
         <input type="button" value="点击" @click='btnClick'>
     </div> -->
 
-    <!-- capture 会先捕获自己的那层事件，从而改变事件的调用 -->
+    <!-- capture 会先捕获自己的那层事件，从而改变事件的调用顺序 -->
     <div id="app" @click.capture='innerClick'>
         <input type="button" value="点击" @click.stop='btnClick'>
     </div>
