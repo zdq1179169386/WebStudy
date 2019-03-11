@@ -10,7 +10,8 @@
 </head>
 <body>
   <div id="app">
-    <comment-box></comment-box>
+    <!-- 子组件调父组件方法刷新 -->
+    <comment-box @reload='loadComments'></comment-box>
     <ul class="list-group">
       <li class="list-group-item" v-for='item in list' :key='item.id'>
         <span class="badge">评论人：{{item.user}}</span>
@@ -44,13 +45,19 @@
           content : '',
         }
       },
+      
       methods: {
+        
         postComment(){
-          
+          var commnet = { id : Date.now(), user: this.user, content : this.content }
+          var list = JSON.parse(localStorage.getItem('cmts') || '[]')
+          list.unshift(commnet)
+          localStorage.setItem('cmts',JSON.stringify(list))
+          this.user = this.content = ''
+          this.$emit('reload')
         }
       },
     }
-
     var vm = new Vue({
       el : '#app',
       data:{
@@ -58,6 +65,14 @@
           {id : 1,user : '李白', content : '天生我材必有用'},
           {id : 2,user : '杜甫', content : '劝君更尽一杯酒'},
         ]
+      },
+      created() {
+        this.loadComments();
+      },
+      methods:{
+        loadComments(){
+          this.list = JSON.parse(localStorage.getItem('cmts') || '[]')
+        },
       },
       components:{
         commentBox : commentBox,
