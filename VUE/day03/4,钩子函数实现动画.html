@@ -48,11 +48,12 @@
           el.style.transform = 'translate(0,0)' 
         },
         // 动画进行
-        // done 相当于 afterEnter 函数
+        // done 就相当于 afterEnter 函数，done 必须要写
         enter: function(el,done){
           el.offsetWidth;
           el.style.transform = 'translate(150px,400px)'
           el.style.transition = 'all 1s ease'
+          // 这里调用，隐藏就不会延时
           done()
         },
         // 动画结束

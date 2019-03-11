@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-title></my-title>
+        <mytitle2></mytitle2>
+    </div>
+    <script>
+        // 创建全局组件
+        var title = Vue.extend({
+            template : '<h3>这是一个组件</h3>'
+        })
+        // 注册组件
+        // 这里注册是 驼峰命名 myTitle，但是使用的时候，必须加 - 改成小写,
+        Vue.component('myTitle',title);
+
+        // 第二种创建方式，快捷创建，传入对象，
+        //  template : 必须只有一个根元素
+        Vue.component('mytitle2',{
+            template: '<h3>快捷创建</h3>'
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+        })
+        
+    </script>
+</body>
+</html>

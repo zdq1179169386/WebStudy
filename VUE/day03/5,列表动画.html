@@ -9,23 +9,31 @@
   <script src="./lib/vue.js"></script>
   <style>
     li{
-      border: 1px dashed #ccc;
-      margin: 10px;
-      line-height: 30px;
-      padding-left: 10px;
+      border: 1px dashed #999;
+      margin: 5px;
+      line-height: 35px;
+      padding-left: 5px;
+      font-size: 12px;
+      width: 100%;
     }
      li:hover {
       background-color: hotpink;
-      transition: all 1s ease;
-    };
-    .table-enter,
-    .table-leave-to {
+      transition: all 0.8s ease;
+    }
+    .v-enter,
+    .v-leave-to {
       opacity: 0;
       transform: translateY(80px);
     }
-    .table-enter-active,
-    .table-leave-active {
+    .v-enter-active,
+    .v-leave-active {
       transition: all 1s ease;
+    }
+    .v-move {
+      transition: all 0.6s ease;
+    }
+    .v-leave-active{
+      position: absolute;
     }
   </style>
 </head>
@@ -43,14 +51,17 @@
       </label>
       <input type="button" value="添加" @click='add'>
     </div>
-    <ul>
+    <!-- <ul> -->
       <!-- 列表动画必须放在 transition-group 中， -->
-      <transition-group name='table'>
-        <li v-for='item in list' :key='item.id'>
+      <!-- appear ： 入场动画 -->
+      <!-- tag : 指定 transition-group 渲染为什么样的元素 -->
+      <!-- 不加tag 默认渲染为span 标签 -->
+      <transition-group appear tag="ul">
+        <li v-for='(item,i) in list' :key='item.id' @click='del(i)'>
           {{ item.id }} --- {{ item.name }}
         </li>
       </transition-group>
-    </ul>
+    <!-- </ul> -->
   </div>
 
   <script>
@@ -79,8 +90,11 @@
             id: this.id,
             name: this.name
           });
-          this.id = this.name = '';
+          this.id = this.name = ''
         },
+        del(i) {
+          this.list.splice(i,1)
+        }
       },
     })
   </script>
