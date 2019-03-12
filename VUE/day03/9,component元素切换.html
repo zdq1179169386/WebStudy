@@ -24,7 +24,7 @@
     <!-- vue 提供了 component 来展示指定组件 -->
     <!-- component 是个占位符，：is 可以用来展示组件的名称 -->
     <!-- 组件切换加动画，组件包裹在 transition 元素中就行了 -->
-    <!-- out-in 动画模式: 先出去在进来 -->
+    <!-- out-in 动画模式: 先出去再进来 -->
     <transition mode='out-in'>
         <component :is="componentName"></component>
     </transition>

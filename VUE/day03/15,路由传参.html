@@ -10,19 +10,20 @@
 </head>
 <body>
     <div id="app">
-
-        <!-- <a href="#/login">登录</a>
-        <a href="#/register">注册</a> -->
-
-        <!-- router-link 默认渲染一个a 标签 -->
-        <router-link to="/login">登录</router-link>
+        <!-- 传递参数 -->
+        <router-link to="/login?id=123&name=zdq">登录</router-link>
         <router-link to="/register">注册</router-link>
         <router-view></router-view>
     </div>
     <script>
         // 模板对象
         var login = {
-            template: '<h1>登录组件</h1>'
+            template: '<h1>登录组件 --- {{this.$route.query.id}} -- {{this.$route.query.name}}</h1>',
+            created() {
+              // 通过 $route 获取参数
+              console.log(this.$route.query.id)
+              console.log(this.$route.query.name)
+            },
         }
         var register = {
             template: '<h1>注册组件</h1>'

@@ -50,8 +50,11 @@
         
         postComment(){
           var commnet = { id : Date.now(), user: this.user, content : this.content }
+          // 先从 localStorage 取出上一次存的 数据
           var list = JSON.parse(localStorage.getItem('cmts') || '[]')
+          // 拼接到最前面
           list.unshift(commnet)
+          // 再存起来
           localStorage.setItem('cmts',JSON.stringify(list))
           this.user = this.content = ''
           this.$emit('reload')

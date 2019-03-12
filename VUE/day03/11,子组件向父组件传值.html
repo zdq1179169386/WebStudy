@@ -30,6 +30,7 @@
       methods: {
         myclick (){
           // 调用父组件的方法，并向父组件传参
+          // emit ： 触发， 传绑定的方法名
           this.$emit('func',this.sonmsg);
         }
       },
