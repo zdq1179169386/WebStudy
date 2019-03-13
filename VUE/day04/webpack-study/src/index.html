@@ -10,8 +10,13 @@
     <!-- <script src="../dist/bundle.js"></script> -->
     <!-- webpack-dev-server 帮我们创建的bundle.js 不在物理磁盘中，而是在内存中 -->
     <!-- 我们可以认为 webpack-dev-server 在项目的根目录帮我们创建了一个虚拟的bundle.js -->
-    <script src="/bundle.js"></script>
 
+    <!-- 当使用 html-webpack-plugin 之后，我们不再需要手动处理 bundle.js 的引用路径了，因为 这个插件，已经帮我们自动 创建了一个 合适的 script , 并且，引用了 正确的路径 -->
+    <!-- 这里即使注释了也没关系 -->
+    <!-- <script src="/bundle.js"></script> -->
+
+     <!-- css 或发起二次请求，不推荐这么搞 -->
+  <!-- <link rel="stylesheet" href="./css/index.css"> -->
 </head>
 <body>
     <ul>
@@ -20,6 +25,8 @@
         <li>我是第3个</li>
         <li>我是第4个</li>
         <li>我是第5个</li>
+        <li>我是第6个</li>
+        <li>我是第7个</li>
     </ul>
 </body>
 </html>
