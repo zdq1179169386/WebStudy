@@ -6,6 +6,10 @@
 build/
 DerivedData/
 
+## webpack
+node_modules/
+dist/
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
