@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- main.js 有es6 语法，不能直接用，要用webpack 坐下处理 -->
+    <!-- <script src="./main.js"></script> -->
+    <!-- <script src="../dist/bundle.js"></script> -->
+    <!-- webpack-dev-server 帮我们创建的bundle.js 不在物理磁盘中，而是在内存中 -->
+    <!-- 我们可以认为 webpack-dev-server 在项目的根目录帮我们创建了一个虚拟的bundle.js -->
+    <script src="/bundle.js"></script>
+
+</head>
+<body>
+    <ul>
+        <li>我是第1个</li>
+        <li>我是第2个</li>
+        <li>我是第3个</li>
+        <li>我是第4个</li>
+        <li>我是第5个</li>
+    </ul>
+</body>
+</html>
