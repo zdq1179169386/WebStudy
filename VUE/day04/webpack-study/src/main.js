@@ -17,9 +17,11 @@ import $ from 'jquery'
 import './css/index.css'
 import './css/index.less'
 import './css/index.scss'
+// 高版本的 bootstrap 中没有字体文件
+import 'bootstrap/dist/css/bootstrap.css'
 
 $(function () {
-    $('li:odd').css('backgroundColor', 'red')
+    $('li:odd').css('backgroundColor', 'green')
     $('li:even').css('backgroundColor', function () {
         return 'pink'
     })
@@ -44,3 +46,14 @@ npm i module_name  -g  全局安装
 // html-webpack-plugin : 将index.html 生成内存的html 文件
 
 // npm i sass-loader -D 需要node-sass 依赖
+
+
+ 
+    
+    
+    
+    
+    
+    
+    
+    
