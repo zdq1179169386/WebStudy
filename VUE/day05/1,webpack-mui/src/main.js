@@ -13,11 +13,11 @@ import router from './router'
 // Vue.use(MintUI)
 
 import 'bootstrap/dist/css/bootstrap.css'
-
 // 按需导入
 import { Button } from 'mint-ui'
 Vue.component(Button.name, Button)
-
+// 导入mui 
+import './lib/mui/css/mui.css'
 
 var vm = new Vue({
     el:'#app',
