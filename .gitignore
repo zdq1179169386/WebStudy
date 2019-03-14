@@ -6,9 +6,9 @@
 build/
 DerivedData/
 
-## webpack
-VUE/**/node_modules/
-VUE/**/dist/
+## web pack
+**/node_modules
+**/dist
 
 ## Various settings
 *.pbxuser
