@@ -75,8 +75,19 @@ module.exports = {
                 // exclude: /node-modules/,
                 include: [path.resolve(__dirname, './src'),path.resolve(__dirname, './node_modules/jquery')],     
           
-            }
+            },
+            // 配置vue
+            {
+                test: /\.vue$/,
+                use: ['vue-loader']
+            },
         ]
+    },
+    resolve: {
+        alias : {
+            // 修改webpack 默认导入的vue.comment.js 路径
+            // 'vue$' : 'vue/dist/vue.js'
+        }
     }
 }
 

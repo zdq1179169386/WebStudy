@@ -27,6 +27,16 @@ $(function () {
     })
 })
 
+class Person {
+    static info = {
+        name: 'zdq'
+    }
+}
+
+console.log(Person.info);
+
+
+
 // 1， webpack 能处理js 之间的依赖关系
 // 2， webpack 能够处理js 之间的兼容问题，把浏览器不能识别的高级语法转化成识别的
 
@@ -47,13 +57,10 @@ npm i module_name  -g  全局安装
 
 // npm i sass-loader -D 需要node-sass 依赖
 
+// 安装babel
 
- 
-    
-    
-    
-    
-    
-    
-    
-    
+// npm i babel-core babel-loader babel-plugin-transform-runtime -D
+
+// npm i babel-preset-env babel-preset-stage-0 -D
+// babel-plugin-transform-runtime 语法转换器，
+// babel-preset-env ：语法表， 是比较新的es 语法，包含了es**

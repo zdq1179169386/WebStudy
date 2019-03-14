@@ -7,8 +7,8 @@ build/
 DerivedData/
 
 ## webpack
-VUE/day04/webpack-study/node_modules/
-VUE/day04/webpack-study/dist/
+VUE/**/node_modules/
+VUE/**/dist/
 
 ## Various settings
 *.pbxuser
