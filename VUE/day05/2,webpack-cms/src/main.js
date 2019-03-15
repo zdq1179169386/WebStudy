@@ -1,11 +1,21 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 
 import  './lib/mui/css/mui.css'
+// tabbar 购物车图标是额外的
+import './lib/mui/css/icons-extra.css'
 
-import { Header } from 'mint-ui';
+import { Header ,Swipe, SwipeItem } from 'mint-ui';
 Vue.component(Header.name, Header);
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
 
 import App from './App.vue'
+import router from './router.js'
+
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
 
 var vm = new Vue({
     el:'#app',
@@ -13,6 +23,6 @@ var vm = new Vue({
     render:function(createEl){
         return createEl(App)
     },
+    router
 })
 
-console.log('111')
