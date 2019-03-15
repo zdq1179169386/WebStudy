@@ -256,8 +256,7 @@ import MintUI from 'mint-ui'
 
 ```
 
-import 'mint-ui/lib/style.css'
-
+  
 ```
 
 3. 在 vue 中使用 MintUI中的Button按钮和Toast弹框提示：
