@@ -1,41 +1,56 @@
 <template>
   <div class="app-container">
     <!-- header -->
-    <mt-header fixed title="title"></mt-header>
+    <mt-header fixed :title="title"></mt-header>
 		<transition>
 		    <router-view></router-view>
 		</transition>
     <!-- tabbar -->
     <nav class="mui-bar mui-bar-tab">
-      <routerLink class="mui-tab-item" to="/home">
-        <span class="mui-icon mui-icon-home"></span>
+      <routerLink class="mui-tab-item" to="/home" >
+       <div @click="title='首页'">
+				  <span class="mui-icon mui-icon-home"></span>
         <span class="mui-tab-label">首页</span>
+			 </div>
       </routerLink>
-      <routerLink class="mui-tab-item" to="/member">
-        <span class="mui-icon mui-icon-contact"></span>
+      <routerLink class="mui-tab-item" to="/member" >
+        <div @click="title='会员'">
+					<span class="mui-icon mui-icon-contact"></span>
         <span class="mui-tab-label">会员</span>
+				</div>
       </routerLink>
       <routerLink class="mui-tab-item" to="/shopcar">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
+				<div @click="title='购物车'">
+					<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
           <span class="mui-badge">9</span>
         </span>
         <span class="mui-tab-label">购物车</span>
+				</div>
       </routerLink>
       <routerLink class="mui-tab-item" to="/search">
-        <span class="mui-icon mui-icon-search"></span>
+       <div @click="title='搜索'">
+				  <span class="mui-icon mui-icon-search"></span>
         <span class="mui-tab-label">搜索</span>
+			 </div>
       </routerLink>
     </nav>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+	data() {
+		return {
+			title : '首页'
+		}
+	},
+};
 </script>
 
 <style scoped>
 .app-container {
   padding-top: 40px;
+  padding-bottom: 50px;
 	overflow-x: hidden;
 }
 .v-enter{

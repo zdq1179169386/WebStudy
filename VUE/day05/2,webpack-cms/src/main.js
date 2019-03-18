@@ -16,6 +16,14 @@ import router from './router.js'
 
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+// 配置请求的根路径
+Vue.http.options.root = 'http://vue.studyit.io'
+
+import moment from 'moment'
+// 全局过滤器
+Vue.filter('ZD_Datafformat', function(dataStr,parrten='YYYY-MM-DD hh:dd'){
+    return moment(dataStr,parrten);
+})
 
 var vm = new Vue({
     el:'#app',
@@ -23,6 +31,7 @@ var vm = new Vue({
     render:function(createEl){
         return createEl(App)
     },
-    router
+    router,
+
 })
 

@@ -6,7 +6,8 @@ import Home from './compoents/tabbar/Home.vue'
 import Member from './compoents/tabbar/Member.vue'
 import Search from './compoents/tabbar/Search.vue'
 import Shopcar from './compoents/tabbar/Shopcar.vue'
-
+import NewList from './compoents/news/NewList.vue'
+import NewInfo from './compoents/news/Newinfo.vue'
 
 var router =  new VueRouter({
   routes : [
@@ -15,6 +16,8 @@ var router =  new VueRouter({
     { path : '/member', component : Member},
     { path : '/search', component : Search},
     { path : '/shopcar', component : Shopcar},
+    { path : '/home/newsist', component : NewList},
+    { path : '/home/newsinfo/:id', component : NewInfo}
   ],
   linkActiveClass : 'mui-active'
 })
