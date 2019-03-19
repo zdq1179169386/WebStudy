@@ -15,10 +15,10 @@
         </routerLink>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <routerLink to='./home/newsphotos'>
           <img src="../../images/menu2.png" alt>
           <div class="mui-media-body">Email</div>
-        </a>
+        </routerLink>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">

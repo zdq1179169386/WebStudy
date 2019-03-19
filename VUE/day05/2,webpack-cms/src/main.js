@@ -6,10 +6,18 @@ import  './lib/mui/css/mui.css'
 // tabbar 购物车图标是额外的
 import './lib/mui/css/icons-extra.css'
 
-import { Header ,Swipe, SwipeItem } from 'mint-ui';
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
+// 按需导入
+// import { Header ,Swipe, SwipeItem, Button,Lazyload} from 'mint-ui';
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.use(Lazyload)
+
+// Lazyload 组件按需导入不行，所以换成全部导入
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
 
 import App from './App.vue'
 import router from './router.js'
@@ -19,10 +27,11 @@ Vue.use(VueResource)
 // 配置请求的根路径
 Vue.http.options.root = 'http://vue.studyit.io'
 
+
 import moment from 'moment'
 // 全局过滤器
-Vue.filter('ZD_Datafformat', function(dataStr,parrten='YYYY-MM-DD hh:dd'){
-    return moment(dataStr,parrten);
+Vue.filter('ZD_Datafformat', function(dataStr,parrten='YYYY-MM-DD hh:mm:ss'){
+    return moment(dataStr).format(parrten);
 })
 
 var vm = new Vue({
@@ -35,3 +44,5 @@ var vm = new Vue({
 
 })
 
+// babel-plugin-transform-remove-strict-mode 
+// webpack 移除严格模式
