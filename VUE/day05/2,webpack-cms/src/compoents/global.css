@@ -1,3 +1,4 @@
+/* http://www.pianshen.com/article/949363507/ */
 .thumbs {
     display: flex
 }
@@ -13,7 +14,7 @@
 
 .thumbs .my-gallery figure {
     margin: 10px;
-    
+    box-shadow: 0 0 10px #ccc
 }
 
 .thumbs figure img{
