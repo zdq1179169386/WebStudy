@@ -27,12 +27,27 @@ Vue.use(VueResource)
 // 配置请求的根路径
 Vue.http.options.root = 'http://vue.studyit.io'
 
-
+// moment 时间格式化
 import moment from 'moment'
 // 全局过滤器
 Vue.filter('ZD_Datafformat', function(dataStr,parrten='YYYY-MM-DD hh:mm:ss'){
     return moment(dataStr).format(parrten);
 })
+// 图片预览组件
+import VuePreview from 'vue-preview'
+//使用vue-preview
+Vue.use(VuePreview)
+
+// Vue.use(VuePreview, {
+//     mainClass: 'pswp--minimal--dark',
+//     barsSize: {top: 0, bottom: 0},
+//     captionEl: false,
+//     fullscreenEl: false,
+//     shareEl: false,
+//     bgOpacity: 0.85,
+//     tapToClose: true,
+//     tapToToggleControls: false
+//   })
 
 var vm = new Vue({
     el:'#app',
