@@ -36,18 +36,18 @@ Vue.filter('ZD_Datafformat', function(dataStr,parrten='YYYY-MM-DD hh:mm:ss'){
 // 图片预览组件
 import VuePreview from 'vue-preview'
 //使用vue-preview
-Vue.use(VuePreview)
+// Vue.use(VuePreview)
 
-// Vue.use(VuePreview, {
-//     mainClass: 'pswp--minimal--dark',
-//     barsSize: {top: 0, bottom: 0},
-//     captionEl: false,
-//     fullscreenEl: false,
-//     shareEl: false,
-//     bgOpacity: 0.85,
-//     tapToClose: true,
-//     tapToToggleControls: false
-//   })
+Vue.use(VuePreview, {
+    mainClass: 'pswp--minimal--dark',
+    barsSize: {top: 0, bottom: 0},
+    captionEl: false,
+    fullscreenEl: false,
+    shareEl: false,
+    bgOpacity: 0.85,
+    tapToClose: true,
+    tapToToggleControls: false
+  })
 
 var vm = new Vue({
     el:'#app',
