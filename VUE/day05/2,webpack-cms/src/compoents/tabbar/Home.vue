@@ -1,27 +1,23 @@
 <template>
   <div>
     <!-- 轮播 -->
-    <mt-swipe :auto="3000">
-      <mt-swipe-item v-for="item in list" :key="item.url">
-        <img :src="item.img" alt>
-      </mt-swipe-item>
-    </mt-swipe>
+    <Swiper :list="list" :isfull="true"></Swiper>
     <!-- 九宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <routerLink to='/home/newsist'>
+        <routerLink to="/home/newsist">
           <img src="../../images/menu1.png" alt>
           <div class="mui-media-body">Home</div>
         </routerLink>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <routerLink to='./home/newsphotos'>
+        <routerLink to="./home/newsphotos">
           <img src="../../images/menu2.png" alt>
           <div class="mui-media-body">Email</div>
         </routerLink>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <routerLink to ='/home/goodslist'>
+        <routerLink to="/home/goodslist">
           <img src="../../images/menu3.png" alt>
           <div class="mui-media-body">Chat</div>
         </routerLink>
@@ -50,11 +46,26 @@
 
 <script>
 import Toast from "mint-ui";
+import Swiper from "../subcomponents/swiper.vue";
 
 export default {
   data() {
     return {
-      list: []
+      list: [
+        {
+          img_url:
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553061898219&di=6dd2cca9c14943a89a93996baebb0aeb&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F0%2F57baaa16d4cff.jpg"
+        },
+        {
+          img_url:
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553061898801&di=6598fca208a532ab8dcc6ed87460e814&imgtype=0&src=http%3A%2F%2Fimage.namedq.com%2Fuploads%2F20181006%2F20%2F1538827398-iDNdRlFEgs.jpg"
+        },
+        {
+          img_url:
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553061898801&di=1e46fc9c1671ea49b6ee17e25360a9aa&imgtype=0&src=http%3A%2F%2Fimage.namedq.com%2Fuploads%2F20181001%2F23%2F1538406454-XlGWZTOuPe.jpg"
+        }
+      ],
+      
     };
   },
   methods: {
@@ -71,29 +82,14 @@ export default {
   },
   created() {
     // this.getLuoBo();
+  },
+  components: {
+    Swiper
   }
 };
 </script>
 
 <style lang='scss' scoped>
-.mint-swipe {
-  height: 200px;
-  .mint-swipe-item {
-    &:nth-child(1) {
-      background-color: red;
-    }
-    &:nth-child(2) {
-      background-color: green;
-    }
-    &:nth-child(3) {
-      background-color: yellow;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
 .mui-grid-view,
 .mui-grid-9 {
   background-color: white;

@@ -13,13 +13,12 @@
     
     <vue-preview class='thumbs' :slides="imgList" @close="handleClose"></vue-preview>
 
-
     <comment-box :newsinfo_id="id"></comment-box>
   </div>
 </template>
 
 <script>
-import comment from "../comment/comment.vue";
+import comment from "../subcomponents/comment.vue";
 import '../global.css'
 
 

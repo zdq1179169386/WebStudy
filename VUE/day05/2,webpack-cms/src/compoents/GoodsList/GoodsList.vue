@@ -1,6 +1,6 @@
 <template>
     <div class="goodlist">
-      <div class="goods-item">
+      <div class="goods-item" @click="goDetail(1)">
         <img src="http://a.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=09238b585e4e9258a6618eeaa9b2fd6e/b7003af33a87e950352a905018385343fbf2b4c8.jpg">
         <h1 class="title">小米手机</h1>
         <div class="info">
@@ -55,7 +55,10 @@ export default {
         }
     },
     methods: {
-        
+        goDetail(id){
+          // 编程式导航 
+          this.$router.push('/home/goodsinfo/' + id);
+        }
     },
 };
 </script>
