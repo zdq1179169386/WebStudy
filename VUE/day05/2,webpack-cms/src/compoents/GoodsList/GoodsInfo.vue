@@ -15,14 +15,14 @@
 
     <div class="mui-card">
       <div class="mui-card-header">
-        <h4>小米手机</h4>
+        <h4>{{this.name}}</h4>
       </div>
       <div class="mui-card-content">
         <div class="mui-card-content-inner">
           <p class="price">
             市场价:
             <del>￥1000</del>&nbsp;&nbsp;销售价:
-            <span class="price_now">￥800</span>
+            <span class="price_now">￥{{this.price}}</span>
           </p>
           <p>
             购买数量:&nbsp;&nbsp;
@@ -61,7 +61,9 @@ import number_box from "../subcomponents/number_box.vue";
 export default {
   data() {
     return {
-      infoId: this.$route.params.id,
+      id: this.$route.params.id,
+      price: this.$route.params.price,
+      name: this.$route.params.name,
       list: [
         {
           img_url:
@@ -77,12 +79,22 @@ export default {
         }
       ],
       ballflag: false,
-      selectCount: '0',
+      selectCount: 1,
     };
   },
   methods: {
     addToShopCar() {
       this.ballflag = !this.ballflag;
+      // 商品模型
+      var goodsItem = {
+        id : this.id,
+        count: this.selectCount,
+        price:this.price,
+        name: this.name,
+        selected : true
+      }
+      // 加入购物车
+      this.$store.commit('addToCar',goodsItem)
     },
     // 动画执行的钩子函数
     beforeEnter(el) {
@@ -114,7 +126,9 @@ export default {
       console.log(count);
     }
   },
-  created() {},
+  created() {
+
+  },
   components: {
     Swiper,
     number_box

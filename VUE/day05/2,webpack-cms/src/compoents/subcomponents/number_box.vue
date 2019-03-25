@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     textChange(){
-      this.$emit('getcount',this.$refs.numberbox.value);
+      this.$emit('getcount',parseInt(this.$refs.numberbox.value));
     }
   },
 };
