@@ -101,6 +101,17 @@ var store = new Vuex.Store({
             })
             // 将购物车数据存到 localStorage 本地存储
             localStorage.setItem('car', JSON.stringify(state.car));
+        },
+        // 删除商品
+        removeGoodsItem(state,obj){
+            state.car.some((item,i) => {
+                if(item.id === obj.id){
+                    state.car.splice(i,1);
+                    return true;
+                }
+            })
+            // 将购物车数据存到 localStorage 本地存储
+            localStorage.setItem('car', JSON.stringify(state.car));
         }
     },
     getters: {
@@ -120,7 +131,19 @@ var store = new Vuex.Store({
             })
             return o;
         },
-       
+        getGoodsCountAndAmount(state){
+            var o = {
+                count : 0,
+                amount : 0
+            }
+            state.car.forEach(item => {
+                if(item.selected){
+                    o.count += item.count;
+                    o.amount += item.price * item.count;
+                }
+            })
+            return o;
+        }
     }
 })
 

@@ -1,9 +1,9 @@
 
 <template>
   <div class="mui-numbox" data-numbox-min="1"  style="height:25px" @click.stop>
-    <button class="mui-btn mui-btn-numbox-minus" type="button" @click.stop.prevent='add'>-</button>
-    <input class="mui-input-numbox" type="number" :value="initCount" ref="numberbox" readonly>
-    <button class="mui-btn mui-btn-numbox-plus" type="button" @click.stop.prevent='reduce'>+</button>
+    <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+    <input class="mui-input-numbox" type="number" :value="initCount" ref="numberbox" readonly @change='changeCount'>
+    <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   },
   props:['initCount','id'],
   methods: {
-    textChange(){
+    changeCount(){
       console.log('textChange');
       this.$store.commit('updateGoodsInfo',{id:this.id,count: parseInt(this.$refs.numberbox.value) })
     },
